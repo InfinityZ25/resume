@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // About section toggle functionality
     aboutButton.addEventListener('click', () => {
-        aboutSection.style.display = aboutSection.style.display === 'none' ? 'block' : 'none';
+        aboutSection.classList.toggle('hidden');
     });
 
     // Parallax effect

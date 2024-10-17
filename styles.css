@@ -372,3 +372,6 @@ body.dark-mode .animated-background {
         flex-direction: column;
     }
 }
+.hidden {
+    display: none;
+}
