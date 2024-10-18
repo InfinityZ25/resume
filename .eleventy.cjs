@@ -9,6 +9,10 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(date).toLocaleString(DateTime.DATE_FULL);
   });
 
+eleventyConfig.addFilter("fixUrl", function(url) {
+  return url.replace(/^\/0\//, "0/");
+});
+
   return {
     dir: {
       input: "posts_md",
