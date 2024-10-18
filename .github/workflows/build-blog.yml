@@ -1,4 +1,4 @@
-name: Build Blog Posts
+name: Build and Deploy Blog
 
 on:
   push:
@@ -6,12 +6,16 @@ on:
       - main
     paths:
       - "posts_md/**"
+      - "_includes/**"
+      - ".eleventy.cjs"
+      - "package.json"
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -29,5 +33,4 @@ jobs:
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
           git add -A
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-generated HTML from Markdown"
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generated HTML from Markdown" && git push)
