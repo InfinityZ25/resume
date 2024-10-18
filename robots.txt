@@ -1,0 +1,21 @@
+Based on your project structure, I'd recommend the following content for your robots.txt:
+
+User-agent: *
+Disallow: /_includes/
+Disallow: /_site/
+Disallow: /node_modules/
+Disallow: /posts_md/
+Disallow: /resume/
+Disallow: /.eleventy.cjs
+Disallow: /.env
+Disallow: /.gitignore
+Disallow: /.hynix
+Disallow: /bun.lockb
+Disallow: /bunfig.toml
+Disallow: /CNAME
+Disallow: /LICENSE
+Disallow: /package.json
+Disallow: /script.js
+Disallow: /tailwind.config.js
+
+This configuration will prevent crawlers from accessing sensitive or unnecessary files while allowing indexing of your main content.

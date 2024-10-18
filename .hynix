@@ -3,5 +3,14 @@
 
 # Include specific files
 !index.html
+!script.js
+!styles.css
 !resume/index.html
+!_includes/base.njk
+!_includes/post.njk
+!.eleventy.cjs
+!.env
+!.bunfig.toml
+!package.json
+!tailwind.config.js
 !README.md
