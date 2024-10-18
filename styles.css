@@ -1,4 +1,3 @@
-/* Reset and Base Styles */
 html,
 body {
   height: 100%;
@@ -7,7 +6,6 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-
 body {
   display: flex;
   flex-direction: column;
@@ -18,7 +16,6 @@ body {
     #e0c3fc 100%
   );
 }
-
 body.dark {
   background: linear-gradient(
     135deg,
@@ -27,7 +24,6 @@ body.dark {
     #3c3c3c 100%
   );
 }
-
 .name-gradient {
   background: linear-gradient(to right, #1a202c, #2d3748);
   -webkit-background-clip: text;
@@ -35,15 +31,13 @@ body.dark {
   color: transparent;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
 }
-
-body.dark .name-gradient {
+.dark .name-gradient {
   background: linear-gradient(to right, #ff79c6, #8be9fd);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   filter: drop-shadow(0px 2px 2px rgba(255, 255, 255, 0.3));
 }
-
 #particle-bg {
   position: fixed;
   top: 0;
@@ -52,18 +46,15 @@ body.dark .name-gradient {
   height: 100%;
   z-index: -1;
 }
-
 .animate__animated.animate__faster {
   --animate-duration: 0.5s;
 }
-
 .no-select {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-
 .no-drag {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
@@ -71,11 +62,9 @@ body.dark .name-gradient {
   -o-user-drag: none;
   user-drag: none;
 }
-
 .copyable {
   cursor: pointer;
 }
-
 #toast {
   visibility: hidden;
   min-width: 250px;
@@ -90,12 +79,10 @@ body.dark .name-gradient {
   left: 50%;
   bottom: 30px;
 }
-
 #toast.show {
   visibility: visible;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-
 @keyframes fadein {
   from {
     bottom: 0;
@@ -106,7 +93,6 @@ body.dark .name-gradient {
     opacity: 1;
   }
 }
-
 @keyframes fadeout {
   from {
     bottom: 30px;
@@ -117,28 +103,23 @@ body.dark .name-gradient {
     opacity: 0;
   }
 }
-
 .main-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 400px;
   margin: auto;
 }
-
 .main-card:hover {
   transform: scale(1.02);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
-
 .background-blur {
   transition: filter 0.3s ease;
 }
-
 .background-blur.active {
   filter: blur(5px);
 }
-
 .about-section {
   max-height: 0;
   overflow: hidden;
@@ -146,13 +127,11 @@ body.dark .name-gradient {
   opacity: 0;
   transform: translateY(-20px);
 }
-
 .about-section.show {
   max-height: 200px;
   opacity: 1;
   transform: translateY(0);
 }
-
 .profile-pic-container {
   position: relative;
   width: 128px;
@@ -160,7 +139,6 @@ body.dark .name-gradient {
   overflow: hidden;
   margin: 0 auto;
 }
-
 .profile-pic-overlay {
   position: absolute;
   top: 0;
@@ -169,7 +147,6 @@ body.dark .name-gradient {
   height: 100%;
   background: transparent;
 }
-
 @media (max-width: 640px) {
   .main-card {
     padding: 1rem;
