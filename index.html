@@ -2,52 +2,35 @@
 <html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juan Cedeno | ML Engineer & Tech Enthusiast in Orlando, FL</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Juan Cedeno - ML Engineer & Tech Enthusiast | Orlando, FL</title>
     <meta
       name="description"
-      content="Juan Cedeno is a Machine Learning Engineer and CEO of Hynix in Orlando, FL. Expert in creating innovative ML solutions and driving technological advancements."
+      content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology."
     />
     <meta
       name="keywords"
-      content="Juan Cedeno, Machine Learning Engineer, AI, Tech Innovator, Hynix CEO, Orlando Tech Scene, Florida AI Expert"
+      content="Juan Cedeno, ML Engineer, Machine Learning, Tech Enthusiast, Hynix, Orlando, Florida"
     />
     <link rel="canonical" href="https://jcedeno.us" />
     <meta name="robots" content="index, follow" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jcedeno.us" />
     <meta
       property="og:title"
-      content="Juan Cedeno | ML Engineer & Tech Innovator"
+      content="Juan Cedeno - ML Engineer & Tech Enthusiast"
     />
     <meta
       property="og:description"
-      content="Discover Juan Cedeno, a leading ML Engineer and CEO of Hynix in Orlando. Pioneering AI solutions and shaping the future of technology."
+      content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology."
     />
     <meta
       property="og:image"
-      content="https://jcedeno.us/images/juan-cedeno-profile.jpg"
+      content="https://pbs.twimg.com/media/GaIv2LCWgAAnY9J?format=png&name=small"
     />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://jcedeno.us" />
-    <meta
-      property="twitter:title"
-      content="Juan Cedeno | ML Engineer & Tech Innovator"
-    />
-    <meta
-      property="twitter:description"
-      content="Meet Juan Cedeno, Orlando's top ML Engineer and Hynix CEO. Driving innovation in AI and machine learning."
-    />
-    <meta
-      property="twitter:image"
-      content="https://jcedeno.us/images/juan-cedeno-profile.jpg"
-    />
-
-    <meta name="author" content="Juan Cedeno" />
+    <meta property="og:url" content="https://jcedeno.us" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#4a5568" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,8 +48,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="styles.css" />
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
@@ -77,48 +58,189 @@
       defer
     ></script>
 
-    <script src="tailwind.config.js"></script>
-
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <!-- JSON-LD structured data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Juan Cedeno",
-        "jobTitle": "Machine Learning Engineer",
-        "url": "https://jcedeno.us",
-        "sameAs": [
-          "https://github.com/infinityz25",
-          "https://x.com/thejcedeno",
-          "https://linkedin.com/in/realjcedeno"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Hynix",
-          "url": "https://hynix.com"
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4a5568",
+              secondary: "#718096",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
         },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Orlando",
-          "addressRegion": "FL",
-          "addressCountry": "US"
+      };
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(
+          135deg,
+          #ffdee9 0%,
+          #f6e7fa 50%,
+          #e0c3fc 100%
+        );
+      }
+      body.dark {
+        background: linear-gradient(
+          135deg,
+          #1c1c1c 0%,
+          #2c2c2c 50%,
+          #3c3c3c 100%
+        );
+      }
+      .name-gradient {
+        background: linear-gradient(to right, #1a202c, #2d3748);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+      }
+      .dark .name-gradient {
+        background: linear-gradient(to right, #ff79c6, #8be9fd);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: drop-shadow(0px 2px 2px rgba(255, 255, 255, 0.3));
+      }
+      #particle-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .animate__animated.animate__faster {
+        --animate-duration: 0.5s;
+      }
+      .no-select {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .no-drag {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+      }
+      .copyable {
+        cursor: pointer;
+      }
+      #toast {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+      }
+      #toast.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
         }
       }
-    </script>
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+      .main-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 400px;
+        margin: auto;
+      }
+      .main-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .background-blur {
+        transition: filter 0.3s ease;
+      }
+      .background-blur.active {
+        filter: blur(5px);
+      }
+      .about-section {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      .about-section.show {
+        max-height: 200px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .profile-pic-container {
+        position: relative;
+        width: 128px;
+        height: 128px;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      .profile-pic-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+      }
+      @media (max-width: 640px) {
+        .main-card {
+          padding: 1rem;
+        }
+        .profile-pic-container {
+          width: 96px;
+          height: 96px;
+        }
+      }
+    </style>
   </head>
   <body
     x-data="mainData"
     :class="{ 'dark': darkMode }"
-    class="h-full font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300 no-select"
+    class="font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300 no-select"
   >
-    <canvas
-      id="particle-bg"
-      class="background-blur"
-      aria-hidden="true"
-    ></canvas>
+    <canvas id="particle-bg" class="background-blur"></canvas>
 
     <div class="fixed top-4 right-4 z-50">
       <button
@@ -126,29 +248,23 @@
         aria-label="Toggle Dark Mode"
         class="p-2 rounded-full bg-white/20 dark:bg-black/20 shadow-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary animate__animated animate__fadeIn"
       >
-        <i
-          x-show="!darkMode"
-          class="fas fa-moon text-xl"
-          aria-hidden="true"
-        ></i>
-        <i x-show="darkMode" class="fas fa-sun text-xl" aria-hidden="true"></i>
+        <i x-show="!darkMode" class="fas fa-moon text-xl"></i>
+        <i x-show="darkMode" class="fas fa-sun text-xl"></i>
       </button>
     </div>
 
-    <main
-      class="relative z-10 flex items-center justify-center min-h-screen p-4"
-    >
+    <main class="flex-grow flex items-center justify-center p-4">
       <div
-        class="text-center max-w-md w-full p-8 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster main-card"
+        class="text-center bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster main-card"
         @mouseenter="focusCard(true)"
         @mouseleave="focusCard(false)"
       >
         <div
-          class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary dark:border-secondary transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster profile-pic-container"
+          class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-primary dark:border-secondary transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster profile-pic-container"
         >
           <img
             src="https://pbs.twimg.com/media/GaIv2LCWgAAnY9J?format=png&name=small"
-            alt="Juan Cedeno - Machine Learning Engineer and Tech Innovator"
+            alt="Juan Cedeno"
             class="w-full h-full object-cover no-select no-drag"
             loading="eager"
             fetchpriority="high"
@@ -160,7 +276,7 @@
           <div class="profile-pic-overlay"></div>
         </div>
         <h1
-          class="text-4xl font-bold mb-1 name-gradient animate__animated animate__fadeInUp animate__faster"
+          class="text-3xl sm:text-4xl font-bold mb-1 name-gradient animate__animated animate__fadeInUp animate__faster"
         >
           Juan Cedeno
         </h1>
@@ -172,31 +288,26 @@
           @thejcedeno
         </p>
         <nav
-          class="flex justify-center gap-4 mb-6 animate__animated animate__fadeInUp animate__faster"
+          class="flex justify-center gap-4 mb-4 sm:mb-6 animate__animated animate__fadeInUp animate__faster"
           style="animation-delay: 0.2s"
         >
           <a
             href="https://github.com/infinityz25"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Juan Cedeno's GitHub Profile"
+            aria-label="GitHub Profile"
             class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
           >
-            <i class="fab fa-github text-2xl" aria-hidden="true"></i>
+            <i class="fab fa-github text-2xl"></i>
           </a>
           <a
             href="https://x.com/thejcedeno"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Juan Cedeno's X Profile"
+            aria-label="X Profile"
             class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
           >
-            <svg
-              class="h-7 w-7"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
+            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
               />
@@ -206,57 +317,208 @@
             href="https://linkedin.com/in/realjcedeno"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Juan Cedeno's LinkedIn Profile"
+            aria-label="LinkedIn Profile"
             class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
           >
-            <i class="fab fa-linkedin text-2xl" aria-hidden="true"></i>
+            <i class="fab fa-linkedin text-2xl"></i>
           </a>
           <a
             href="mailto:dev@jcedeno.us"
             aria-label="Email Juan Cedeno"
             class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
           >
-            <i class="fas fa-envelope text-2xl" aria-hidden="true"></i>
+            <i class="fas fa-envelope text-2xl"></i>
           </a>
         </nav>
         <div
-          class="flex flex-col sm:flex-row justify-center gap-4 mb-6 animate__animated animate__fadeInUp animate__faster"
+          class="flex flex-col sm:flex-row justify-center gap-4 mb-4 sm:mb-6 animate__animated animate__fadeInUp animate__faster"
           style="animation-delay: 0.3s"
         >
           <a
             href="/resume"
             class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
           >
-            <i class="fas fa-file-alt text-xl" aria-hidden="true"></i>
+            <i class="fas fa-file-alt text-xl"></i>
             <span>Resume</span>
           </a>
           <button
             @click="toggleAbout()"
             class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
           >
-            <i class="fas fa-info-circle text-xl" aria-hidden="true"></i>
+            <i class="fas fa-info-circle text-xl"></i>
             <span x-text="showAbout ? 'Hide About' : 'About'"></span>
           </button>
         </div>
         <div
           x-ref="aboutSection"
           :class="{'show': showAbout}"
-          class="about-section bg-gray-100/80 dark:bg-gray-800/80 p-4 rounded-lg mt-6 text-gray-800 dark:text-gray-200"
+          class="about-section bg-gray-100/80 dark:bg-gray-800/80 p-4 rounded-lg mt-4 sm:mt-6 text-gray-800 dark:text-gray-200"
         >
           <h2 class="sr-only">About Juan Cedeno</h2>
           <p>
-            ML-Engineer | Tech Innovator<br />
+            ML-Engineer | Tech Enthusiast<br />
             Passionate about creating elegant solutions to complex problems. CEO
-            of Hynix, building the future of AI and machine learning today.
+            Hynix, building the future today.
           </p>
         </div>
       </div>
     </main>
 
-    <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      Copied to clipboard!
-    </div>
+    <div id="toast">Copied to clipboard!</div>
 
-    <script src="script.js"></script>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("mainData", () => ({
+          darkMode: localStorage.getItem("theme") === "dark",
+          showAbout: false,
+          init() {
+            if (
+              localStorage.theme === "dark" ||
+              (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+              document.documentElement.classList.add("dark");
+              this.darkMode = true;
+            } else {
+              document.documentElement.classList.remove("dark");
+              this.darkMode = false;
+            }
+            this.$nextTick(() => {
+              this.initParticleBackground();
+            });
+          },
+          toggleDarkMode() {
+            this.darkMode = !this.darkMode;
+            localStorage.theme = this.darkMode ? "dark" : "light";
+            document.documentElement.classList.toggle("dark", this.darkMode);
+            this.$nextTick(() => {
+              this.updateParticleColor();
+            });
+          },
+          toggleAbout() {
+            this.showAbout = !this.showAbout;
+          },
+          initParticleBackground() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(
+              75,
+              window.innerWidth / window.innerHeight,
+              0.1,
+              1000
+            );
+            const renderer = new THREE.WebGLRenderer({
+              canvas: document.getElementById("particle-bg"),
+              alpha: true,
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            const particles = new THREE.BufferGeometry();
+            const particleCount = 5000;
+            const posArray = new Float32Array(particleCount * 3);
+            const colorArray = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount * 3; i += 3) {
+              posArray[i] = (Math.random() - 0.5) * 5;
+              posArray[i + 1] = (Math.random() - 0.5) * 5;
+              posArray[i + 2] = (Math.random() - 0.5) * 5;
+
+              colorArray[i] = Math.random();
+              colorArray[i + 1] = Math.random();
+              colorArray[i + 2] = Math.random();
+            }
+
+            particles.setAttribute(
+              "position",
+              new THREE.BufferAttribute(posArray, 3)
+            );
+            particles.setAttribute(
+              "color",
+              new THREE.BufferAttribute(colorArray, 3)
+            );
+
+            const material = new THREE.PointsMaterial({
+              size: 0.005,
+              vertexColors: true,
+            });
+
+            const particlesMesh = new THREE.Points(particles, material);
+            scene.add(particlesMesh);
+
+            camera.position.z = 2;
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            document.addEventListener("mousemove", (event) => {
+              mouseX = event.clientX / window.innerWidth - 0.5;
+              mouseY = event.clientY / window.innerHeight - 0.5;
+            });
+
+            const animate = () => {
+              requestAnimationFrame(animate);
+
+              particlesMesh.rotation.y += 0.001;
+              particlesMesh.rotation.x += mouseY * 0.001;
+              particlesMesh.rotation.y += mouseX * 0.001;
+
+              renderer.render(scene, camera);
+            };
+
+            animate();
+
+            window.addEventListener("resize", () => {
+              camera.aspect = window.innerWidth / window.innerHeight;
+              camera.updateProjectionMatrix();
+              renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            this.updateParticleColor = () => {
+              const colors = particles.attributes.color;
+              for (let i = 0; i < particleCount * 3; i += 3) {
+                if (this.darkMode) {
+                  colors.setXYZ(i / 3, 1, 1, 1); // White for dark mode
+                } else {
+                  // Pastel colors for light mode
+                  colors.setXYZ(
+                    i / 3,
+                    0.5 + Math.random() * 0.5,
+                    0.5 + Math.random() * 0.5,
+                    0.5 + Math.random() * 0.5
+                  );
+                }
+              }
+              colors.needsUpdate = true;
+            };
+
+            this.updateParticleColor(); // Initial color set
+          },
+          copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(
+              () => {
+                this.showToast();
+              },
+              (err) => {
+                console.error("Could not copy text: ", err);
+              }
+            );
+          },
+          showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(() => {
+              toast.className = toast.className.replace("show", "");
+            }, 3000);
+          },
+          focusCard(isFocused) {
+            const bg = document.getElementById("particle-bg");
+            if (isFocused) {
+              bg.classList.add("active");
+            } else {
+              bg.classList.remove("active");
+            }
+          },
+        }));
+      });
+    </script>
   </body>
 </html>
