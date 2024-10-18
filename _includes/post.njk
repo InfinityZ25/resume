@@ -1,12 +1,51 @@
----
-layout: base.njk
----
-<article class="max-w-2xl mx-auto mt-8">
-  <h1 class="text-3xl font-bold mb-4">{{ title }}</h1>
-  {% if date %}
-    <time datetime="{{ date | dateIso }}" class="text-sm text-gray-600 mb-4 block">{{ date | dateReadable }}</time>
-  {% endif %}
-  <div class="prose prose-lg">
-    {{ content | safe }}
-  </div>
-</article>
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{{ title }} - Juan Cedeno</title>
+    <meta name="description" content="{{ description }}" />
+    <link rel="canonical" href="https://jcedeno.us{{ page.url }}" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="{{ title }} - Juan Cedeno" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:url" content="https://jcedeno.us{{ page.url }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#4a5568" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
+    <script src="/tailwind.config.js"></script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body x-data="mainData" :class="{ 'dark': darkMode }" class="font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300 no-select">
+    <canvas id="particle-bg" class="background-blur"></canvas>
+
+    <div class="fixed top-4 right-4 z-50">
+      <button @click="toggleDarkMode()" aria-label="Toggle Dark Mode" class="p-2 rounded-full bg-white/20 dark:bg-black/20 shadow-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary animate__animated animate__fadeIn">
+        <i x-show="!darkMode" class="fas fa-moon text-xl"></i>
+        <i x-show="darkMode" class="fas fa-sun text-xl"></i>
+      </button>
+    </div>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+      <div class="text-center bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster main-card">
+        <article class="prose prose-lg dark:prose-invert max-w-none p-8">
+          <h1 class="text-3xl font-bold mb-4 name-gradient">{{ title }}</h1>
+          <time datetime="{{ date | dateIso }}" class="text-sm text-gray-600 dark:text-gray-400 mb-4 block">{{ date | dateReadable }}</time>
+          {{ content | safe }}
+        </article>
+      </div>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

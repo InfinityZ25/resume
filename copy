@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Files to include
+files=("index.html" "script.js" "styles.css" "README.md" ".eleventy.js" "package.json" "tailwind.config.js" "_includes/base.njk" "_includes/post.njk")
+
+# Create a temporary file
+temp_file=$(mktemp)
+
+# Add title
+echo "# Project Overview" >> "$temp_file"
+echo "" >> "$temp_file"
+
+# Add file structure
+echo "## File Structure" >> "$temp_file"
+echo "\`\`\`" >> "$temp_file"
+tree -L 2 >> "$temp_file"
+echo "\`\`\`" >> "$temp_file"
+echo "" >> "$temp_file"
+
+# Function to determine file type
+get_file_type() {
+    case "$1" in
+        *.html|*.njk) echo "html" ;;
+        *.js) echo "javascript" ;;
+        *.css) echo "css" ;;
+        *.json) echo "json" ;;
+        *.md) echo "markdown" ;;
+        *) echo "${1##*.}" ;;
+    esac
+}
+
+# Add contents of each file
+for file in "${files[@]}"; do
+    if [ -f "$file" ]; then
+        echo "## Contents of $file" >> "$temp_file"
+        echo "" >> "$temp_file"
+        file_type=$(get_file_type "$file")
+        echo "\`\`\`$file_type" >> "$temp_file"
+        cat "$file" >> "$temp_file"
+        echo "\`\`\`" >> "$temp_file"
+        echo "" >> "$temp_file"
+    else
+        echo "## $file" >> "$temp_file"
+        echo "" >> "$temp_file"
+        echo "File not found." >> "$temp_file"
+        echo "" >> "$temp_file"
+    fi
+done
+
+# Copy to clipboard (unchanged)
+if command -v pbcopy > /dev/null; then
+    # macOS
+    cat "$temp_file" | pbcopy
+elif command -v xclip > /dev/null; then
+    # Linux with xclip
+    xclip -selection clipboard < "$temp_file"
+elif command -v clip.exe > /dev/null; then
+    # Windows
+    clip.exe < "$temp_file"
+else
+    echo "No suitable clipboard command found."
+fi
+
+# Clean up
+rm "$temp_file"
+
+echo "Markdown content copied to clipboard!"

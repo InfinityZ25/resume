@@ -9,15 +9,18 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(date).toLocaleString(DateTime.DATE_FULL);
   });
 
+  // Add this line to create a collection of all posts
+  eleventyConfig.addCollection("posts", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("posts_md/*.md");
+  });
+
   return {
     dir: {
       input: "posts_md",
       output: "posts",
       includes: "../_includes",
     },
-    templateFormats: ["md", "njk", "html"],
+    templateFormats: ["md"],
     markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
   };
 };
