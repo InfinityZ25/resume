@@ -10,7 +10,7 @@ module.exports = function (eleventyConfig) {
   });
 
 eleventyConfig.addFilter("fixUrl", function(url) {
-  return url.replace(/^\/0\//, "0/");
+  return url.startsWith('/') ? url.substring(1) : url;
 });
 
   return {
