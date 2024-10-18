@@ -37,6 +37,11 @@
       rel="stylesheet"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
@@ -106,6 +111,9 @@
           #3c3c3c 100%
         );
       }
+      .animate__animated.animate__faster {
+        --animate-duration: 0.5s;
+      }
     </style>
   </head>
   <body
@@ -119,7 +127,7 @@
       <button
         @click="toggleDarkMode()"
         aria-label="Toggle Dark Mode"
-        class="p-2 rounded-full bg-white/20 dark:bg-black/20 shadow-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary"
+        class="p-2 rounded-full bg-white/20 dark:bg-black/20 shadow-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary animate__animated animate__fadeIn"
       >
         <i x-show="!darkMode" class="fas fa-moon text-xl"></i>
         <i x-show="darkMode" class="fas fa-sun text-xl"></i>
@@ -130,10 +138,10 @@
       class="relative z-10 flex items-center justify-center min-h-screen p-4"
     >
       <div
-        class="text-center max-w-md w-full p-8 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700"
+        class="text-center max-w-md w-full p-8 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster"
       >
         <div
-          class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary dark:border-secondary transition-transform duration-300 hover:scale-105"
+          class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary dark:border-secondary transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster"
         >
           <img
             src="https://api.dicebear.com/6.x/micah/svg?seed=theveryrealjcedeno"
@@ -145,11 +153,21 @@
             height="128"
           />
         </div>
-        <h1 class="text-4xl font-bold mb-1 name-gradient">Juan Cedeno</h1>
-        <p class="text-sm font-medium mb-4 text-black dark:text-white">
+        <h1
+          class="text-4xl font-bold mb-1 name-gradient animate__animated animate__fadeInUp animate__faster"
+        >
+          Juan Cedeno
+        </h1>
+        <p
+          class="text-sm font-medium mb-4 text-black dark:text-white animate__animated animate__fadeInUp animate__faster"
+          style="animation-delay: 0.1s"
+        >
           @thejcedeno
         </p>
-        <nav class="flex justify-center gap-4 mb-6">
+        <nav
+          class="flex justify-center gap-4 mb-6 animate__animated animate__fadeInUp animate__faster"
+          style="animation-delay: 0.2s"
+        >
           <a
             href="https://github.com/infinityz25"
             target="_blank"
@@ -189,9 +207,12 @@
             <i class="fas fa-envelope text-2xl"></i>
           </a>
         </nav>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-4 mb-6 animate__animated animate__fadeInUp animate__faster"
+          style="animation-delay: 0.3s"
+        >
           <a
-            href="/resume/v3"
+            href="/resume"
             class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
           >
             <i class="fas fa-file-alt text-xl"></i>
@@ -207,7 +228,8 @@
         </div>
         <section
           x-show="showAbout"
-          x-transition
+          x-transition:enter="animate__animated animate__fadeIn animate__faster"
+          x-transition:leave="animate__animated animate__fadeOut animate__faster"
           class="bg-gray-100/80 dark:bg-gray-800/80 p-4 rounded-lg mt-6 text-gray-800 dark:text-gray-200"
         >
           <h2 class="sr-only">About Juan Cedeno</h2>
