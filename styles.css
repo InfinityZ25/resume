@@ -156,3 +156,16 @@ body.dark {
     height: 96px;
   }
 }
+#dollar-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 50;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+#dollar-icon:hover {
+  opacity: 1;
+}

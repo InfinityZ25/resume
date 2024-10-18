@@ -189,6 +189,26 @@
 
     <div id="toast">Copied to clipboard!</div>
 
+    <div
+      id="dollar-icon"
+      class="text-primary dark:text-secondary"
+      x-data="{ clickCount: 0, lastClickTime: 0 }"
+      @click="
+        const now = new Date().getTime();
+        if (now - lastClickTime < 500) {
+          clickCount++;
+          if (clickCount === 4) {
+            window.location.href = 'https://cash.app/$thejcedeno';
+          }
+        } else {
+          clickCount = 1;
+        }
+        lastClickTime = now;
+      "
+    >
+      <i class="fas fa-dollar-sign"></i>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
