@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Plan for the Future</title>
+</head>
+<body>
+    <article>
+    <h1>A Plan for the Future</h1>
+    <time datetime="2024-10-18T00:00:00.000+00:00">October 18, 2024</time>
+    <p>Hi,</p>
+<p>I'm trying to get into the habit of writing more and publishing more of my research in an easier-to-consume medium. Blogs on Substack and Medium are nice, but I like having full control of it all.</p>
+<p>As such, I now have this system that allows me to write markdown and have it generate HTML, CSS, and JS to serve to the user statically, in my case, hosting it on GitHub Pages.</p>
+<p>So let's talk about how we did it.</p>
+<h2>The stack</h2>
+<p>I chose to keep things vanilla and easy. Don't use frameworks. Use Tailwind CSS and use libraries whenever you can (for charting, icons, animations, 3D scenes, etc.). Why? Because I hate build steps.</p>
+<p>The HTML you write is the HTML you serve. Why complicate things at your level? Let Cloudflare figure out how to optimize the file for you; don't worry about it.</p>
+<p>So, how can we make a system like this? Keep in mind this stack is what I am using for LLMs to write code efficiently with, so keeping things minimal is a must.</p>
+<p>But why vanilla JS? Well, I lied to you. We are actually using https://alpinejs.dev/, but it is so minimal that I consider it pseudo-vanilla. Alpine provides a very HTMX-like way of doing things, but without the drawbacks of HTMX.</p>
+<p>For styling, we chose Tailwind CSS. Since it is so ubiquitous, well-known, and supported by the community, we couldn't choose anything else. We are getting the script via CDN.</p>
+<p>And then we need the magic to make it all happen: &quot;Eleventy,&quot; a tool that takes your markdown and creates HTML for it from your template files. We just commit all the posts_md results into the posts/ directory using a GitHub action after each commit, and we are done!</p>
+<p>So magical! So fast! Love it.</p>
+<p>And of course, you can still add any JS library you need.</p>
+<p>And now you don't have to worry about having a server for your personal site or blog site.</p>
+<h2>Conclusion</h2>
+<p>The tech is very cool, but we still have to finalize the styling on the generated templates. Either way, I already really like this workflow. I almost want to have an Obsidian vault hooked up in the same way!</p>
+<p>Publishing all your public notes automatically to share in a version controlled esy must be awesome. we could technically link a git submodue and have it be somewhere else or a similar solution.</p>
+<p>i am so excited, and the best part is that we dont have to pay anything for the hosting.</p>
+
+</article>
+</body>
+</html>
