@@ -1,401 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Juan Cedeno - Resume</title>
-    <!-- Tailwind CSS CDN -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Cedeno - Software Engineer & AI Enthusiast</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <style>
-      body {
-        font-family: "Merriweather", serif;
-        scroll-behavior: smooth;
+      @page {
+        size: A4;
+        margin: 20mm;
       }
-      h1,
-      h2,
-      h3 {
-        font-family: "Roboto", sans-serif;
-      }
-      /* Active navigation link styling */
-      .nav-link.active {
-        @apply text-blue-600 border-b-2 border-blue-600;
+
+      @media print {
+        body {
+          font-size: 11pt;
+          line-height: 1.4;
+          background: none;
+          /* Remove background color for print */
+        }
+
+        .container {
+          box-shadow: none;
+          background: white;
+          /* Ensure background is white */
+          margin: 0;
+          /* Remove margins for better space usage */
+          padding: 0;
+          /* Remove padding to utilize full space */
+        }
+
+        header,
+        section {
+          page-break-inside: avoid;
+        }
+
+        h2 {
+          page-break-after: avoid;
+        }
+
+        ul,
+        li {
+          page-break-inside: avoid;
+        }
+
+        .cover-letter {
+          page-break-after: always;
+        }
       }
     </style>
   </head>
-  <body class="bg-gray-100 text-gray-800">
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex justify-between">
-          <div class="flex space-x-4">
-            <!-- Logo or Name -->
-            <div>
-              <a
-                href="#home"
-                class="flex items-center py-5 px-2 text-gray-700 hover:text-blue-600"
-              >
-                <span class="font-bold text-xl">Juan Cedeno</span>
-              </a>
-            </div>
-            <!-- Primary Nav -->
-            <div class="hidden md:flex items-center space-x-1">
-              <a
-                href="#summary"
-                class="nav-link py-5 px-3 text-gray-700 hover:text-blue-600"
-                >Summary</a
-              >
-              <a
-                href="#education"
-                class="nav-link py-5 px-3 text-gray-700 hover:text-blue-600"
-                >Education</a
-              >
-              <a
-                href="#experience"
-                class="nav-link py-5 px-3 text-gray-700 hover:text-blue-600"
-                >Experience</a
-              >
-              <a
-                href="#skills"
-                class="nav-link py-5 px-3 text-gray-700 hover:text-blue-600"
-                >Skills</a
-              >
-              <a
-                href="#projects"
-                class="nav-link py-5 px-3 text-gray-700 hover:text-blue-600"
-                >Projects</a
-              >
-              <a
-                href="#contact"
-                class="nav-link py-5 px-3 text-gray-700 hover:text-blue-600"
-                >Contact</a
-              >
-            </div>
-          </div>
-          <!-- Mobile Button -->
-          <div class="md:hidden flex items-center">
-            <button class="mobile-menu-button">
-              <svg
-                class="w-6 h-6 text-gray-700 hover:text-blue-600"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 8h16M4 16h16"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div class="mobile-menu hidden md:hidden">
-        <a
-          href="#summary"
-          class="block py-2 px-4 text-sm hover:bg-blue-600 hover:text-white"
-          >Summary</a
-        >
-        <a
-          href="#education"
-          class="block py-2 px-4 text-sm hover:bg-blue-600 hover:text-white"
-          >Education</a
-        >
-        <a
-          href="#experience"
-          class="block py-2 px-4 text-sm hover:bg-blue-600 hover:text-white"
-          >Experience</a
-        >
-        <a
-          href="#skills"
-          class="block py-2 px-4 text-sm hover:bg-blue-600 hover:text-white"
-          >Skills</a
-        >
-        <a
-          href="#projects"
-          class="block py-2 px-4 text-sm hover:bg-blue-600 hover:text-white"
-          >Projects</a
-        >
-        <a
-          href="#contact"
-          class="block py-2 px-4 text-sm hover:bg-blue-600 hover:text-white"
-          >Contact</a
-        >
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="pt-20 max-w-6xl mx-auto px-4">
-      <!-- Header / Home Section -->
-      <section id="home" class="mb-12">
-        <header class="text-center">
-          <h1 class="text-4xl font-bold mb-2">Juan Cedeno</h1>
-          <p class="text-lg text-gray-600">
-            Orlando, FL |
-            <a
-              href="mailto:juan.cedeno@example.com"
-              class="text-blue-600 hover:underline"
-              >juan.cedeno@example.com</a
-            >
-            |
-            <a
-              href="https://linkedin.com/in/juancedeno"
-              target="_blank"
-              class="text-blue-600 hover:underline"
-              >linkedin.com/in/juancedeno</a
-            >
+  <body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="container mx-auto p-6 bg-white shadow-md rounded-lg my-8 max-w-4xl">
+      <!-- Professional Overview (Cover Letter) Section -->
+      <section class="cover-letter mb-12">
+        <header class="mb-6 border-b pb-4">
+          <h1 class="text-3xl font-bold">Juan Cedeno</h1>
+          <p class="mt-2">(689) 248-1068 | dev@jcedeno.us | <a href="https://www.linkedin.com/in/realjcedeno" class="text-blue-600 underline">linkedin.com/in/realjcedeno</a>
           </p>
         </header>
+        <section id="professional-overview" class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">Professional Overview</h2>
+          <p class="mb-4"> As a Software Engineer and AI Researcher with over 8 years of experience, I bring a unique blend of technical expertise and innovative problem-solving to the table. My career spans from custom Java development to cutting-edge AI solutions, demonstrating a proven track record in managing large-scale projects, leading technical teams, and developing scalable applications. </p>
+          <p class="mb-4"> At Paychex, I currently lead optimization efforts for a Foundational System of Records project, scaling it to handle millions of daily records. Previously, as the Founder & CTO of Hynix, I successfully transitioned the company from a content creator event business to an AI research firm, managing a team of over 10 professionals and spearheading major projects like Noobsters and Friday (itsfriday.app). </p>
+          <p class="mb-4"> My expertise in Java, Spring Boot, and various AI/ML frameworks, combined with my passion for leveraging emerging technologies, positions me to make significant contributions in roles that demand innovation and technical leadership. I am eager to apply my skills and experience to drive forward-thinking projects and deliver impactful solutions. </p>
+          <p> I look forward to discussing how my background aligns with your team's needs and contributing to the next wave of technological advancements in your organization. </p>
+        </section>
       </section>
-
-      <!-- Summary Section -->
-      <section id="summary" class="mb-12">
-        <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-1 mb-4">
-          Summary
-        </h2>
-        <p>
-          Ambitious and innovative Software Engineer with 3+ years of experience
-          in developing cutting-edge technology solutions and leading
-          high-profile projects. Proven track record in spearheading initiatives
-          that drive engagement and economic growth, from online influencer
-          event development to blockchain-based platforms. Currently leading
-          development and research efforts at Hynix, focusing on AI foundational
-          technology and real-world applications.
-        </p>
-      </section>
-
-      <!-- Education Section -->
-      <section id="education" class="mb-12">
-        <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-1 mb-4">
-          Education
-        </h2>
-        <div class="mb-6">
-          <h3 class="text-xl font-bold">Valencia College, Orlando, FL</h3>
-          <p class="italic">Associate in Arts, Computer Science, 2020</p>
-          <ul class="list-disc list-inside mt-2">
-            <li>
-              Relevant Coursework: Computer Science I & II, Operating Systems,
-              Computer Architecture
-            </li>
-            <li>GPA: 3.8/4.0</li>
+      <!-- Professional Experience -->
+      <section id="experience" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Professional Experience</h2>
+        
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Software Engineer III</h3>
+          <p class="italic">Paychex, Rochester, NY | 2022 - Present</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>Lead optimization efforts for a Foundational System of Records project, scaling to millions of daily records.</li>
+            <li>Develop and maintain applications using Spring Boot 3.2, Java 21, MongoDB 7, Kafka, and RabbitMQ.</li>
+            <li>Upgraded legacy projects from Spring Boot 2 to 3.2 and modernized JSP forms.</li>
+            <li>Gained extensive knowledge in network infrastructure, load balancers, proxies, and VLANs.</li>
+            <li>Enhanced communication and teamwork skills in a corporate environment.</li>
           </ul>
+        </div>
+        
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Founder & CTO</h3>
+          <p class="italic">Hynix, Orlando, FL | 2020 - 2022</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>Founded and led Hynix, transitioning from a content creator event business to an AI research firm.</li>
+            <li>Managed a team of 10+ professionals, focusing on large-scale content creator events and AI development.</li>
+            <li>Spearheaded the development of Noobsters, powering major Twitch events including Squid Craft Game Season 1 and Desafio Bingo.</li>
+            <li>Delivered events with 100k+ prize pools, attracting millions of concurrent viewers on Twitch.</li>
+            <li>Initiated AI research and development, laying the groundwork for future projects like Friday (itsfriday.app).</li>
+          </ul>
+        </div>
+        
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Business Operations Consultant</h3>
+          <p class="italic">aseprob.com | Remote | 2022 - Present</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>Assisted in transitioning aseprob.com from a traditional insurance broker to a remote, online-focused business.</li>
+            <li>Implemented digital tools and platforms to enhance client interactions and streamline operations.</li>
+            <li>Developed and maintained the company's online presence, including website updates and digital marketing strategies.</li>
+            <li>Collaborated with the team to identify and integrate AI-driven solutions to improve customer service and operational efficiency.</li>
+            <li>Provided ongoing technical support and training to ensure smooth adoption of new technologies.</li>
+          </ul>
+        </div>
+        
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Freelance Developer</h3>
+          <p class="italic">Orlando, FL | 2015 - 2020</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>Developed custom Java solutions for the gaming industry, focusing on infrastructure and event management.</li>
+            <li>Implemented blockchain integrations for various client applications.</li>
+            <li>Gained broad experience in software development, project management, and client relations.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Technical Skills -->
+      <section id="skills" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Technical Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p>
+              <strong>Languages:</strong> Java, C#, Python, JavaScript/TypeScript, Go, Rust, Kotlin
+            </p>
+            <p>
+              <strong>Web & Frameworks:</strong> React, Angular, Next.js, Spring Boot, Flask, FastAPI, HTMX
+            </p>
+            <p>
+              <strong>Databases:</strong> MongoDB, PostgreSQL, OracleDB, Redis, S3, ScyllaDB
+            </p>
+          </div>
+          <div>
+            <p>
+              <strong>DevOps & Cloud:</strong> Docker, Kubernetes, Terraform, AWS, GCP, Gradle
+            </p>
+            <p>
+              <strong>AI/ML:</strong> PyTorch, TensorFlow, OpenCV, GPT models, LLMs, Stable Diffusion
+            </p>
+            <p>
+              <strong>Other:</strong> Blockchain Integration, Event Management, Team Leadership
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Key Projects -->
+      <section id="projects" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Key Projects</h2>
+        <ul class="list-disc ml-5 text-gray-700">
+          <li>
+            <strong>Friday (itsfriday.app)</strong>: Developing an advanced personal AI assistant using a hybrid model approach, auto-routing, and code evaluation capabilities. Integrates TTS, STT, and real-time video chat processing. (Planned Release: Q4 2024)
+          </li>
+          <li>
+            <strong>Just.Pics</strong>: Launched a commercial image generation platform using Stable Diffusion models and LoRA adapters. (March 2023)
+          </li>
+          <li>
+            <strong>Twitch Rivals' Squid Craft Game Season 1</strong>: Developed infrastructure and managed event with 100k prize pool and millions of concurrent viewers. (January 2022)
+          </li>
+          <li>
+            <strong>Desafio Bingo</strong>: Large-scale Twitch event with millions of concurrent viewers. (October 2021)
+          </li>
+          <li>
+            <strong>UHC Comunidades</strong>: Custom event for content creator's and their communities to interact together.
+          </li>
+          <li>
+            <strong>Noobsters</strong>: Foundational technology powering multiple large-scale content creator events.
+          </li>
+        </ul>
+      </section>
+      <!-- Education and Continuous Learning -->
+      <section id="education" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Education and Continuous Learning</h2>
+        <div class="mb-4">
+          <h3 class="font-bold">Associate in Arts, Computer Science</h3>
+          <p>Valencia College, Orlando, FL | 2020 - 2022</p>
+          <p class="italic">Transitioned to full-time AI research and development to pursue innovative opportunities in the field.</p>
         </div>
         <div>
-          <p class="italic">
-            Intended Bachelor of Science in Computer Science at University of
-            Central Florida (UCF). Completed AA and pursued entrepreneurial
-            ventures.
-          </p>
-        </div>
-      </section>
-
-      <!-- Professional Experience Section -->
-      <section id="experience" class="mb-12">
-        <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-1 mb-4">
-          Professional Experience
-        </h2>
-
-        <!-- Paychex -->
-        <div class="mb-6">
-          <h3 class="text-xl font-bold">Software Engineer III</h3>
-          <p class="italic">Paychex, Orlando, FL | 2021 - Present</p>
-          <ul class="list-disc list-inside mt-2">
-            <li>
-              Spearheaded software development teams to build high-performance
-              applications, including mobile and web-based solutions.
-            </li>
-            <li>
-              Coordinated development of software for leading companies within
-              the finance and HR industries.
-            </li>
-            <li>
-              Collaborated with senior engineers to identify project needs and
-              oversee project implementation.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Influencer Event Development & Blockchain Ventures -->
-        <div class="mb-6">
-          <h3 class="text-xl font-bold">
-            Influencer Event Developer & Blockchain Specialist
-          </h3>
-          <p class="italic">
-            Various Startups & Blockchain Ventures | 2019 - 2021
-          </p>
-          <ul class="list-disc list-inside mt-2">
-            <li>
-              Developed and executed online influencer events, including Twitch
-              Rival's SquidCraft Games (Season 1, 2022) and Dedsafio Bingo
-              (October 2021), each featuring $100,000 prize pools.
-            </li>
-            <li>
-              Partnered with major gaming companies to create groundbreaking
-              events that enhanced user engagement.
-            </li>
-            <li>
-              Managed fundraising and community outreach efforts for startups
-              and research projects.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Hynix -->
-        <div class="mb-6">
-          <h3 class="text-xl font-bold">Research Lead</h3>
-          <p class="italic">Hynix | 2022 - Present</p>
-          <ul class="list-disc list-inside mt-2">
-            <li>
-              Conducting research in general AI foundational technology and
-              real-world AI solutions.
-            </li>
-            <li>
-              Laying the foundation for future innovations in AI technology with
-              a focus on data-driven decision making.
-            </li>
-            <li>
-              Applying AI principles to industry-specific challenges, driving
-              innovation and growth across various sectors.
-            </li>
+          <h3 class="font-bold">Specialized AI and Machine Learning Education</h3>
+          <ul class="list-disc ml-5 mt-2 text-gray-700">
+            <li>MIT OpenCourseWare: Advanced AI/ML Courses</li>
+            <li>Stanford Online: Cutting-edge AI/ML Specializations</li>
+            <li>Andrej Karpathy's Transformer Series</li>
+            <li>Ongoing self-directed learning in AI and emerging technologies</li>
           </ul>
         </div>
       </section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="mb-12">
-        <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-1 mb-4">
-          Skills
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Technical Skills -->
-          <div>
-            <h3 class="text-lg font-semibold mb-2">Technical Skills</h3>
-            <ul class="list-disc list-inside">
-              <li>Programming Languages: Python, Java, C++</li>
-              <li>Frameworks: ReactJS, Django</li>
-              <li>Cloud Platforms: AWS, Google Cloud Platform, Azure</li>
-              <li>Blockchain: Small community blockchain platforms</li>
-              <li>Software Development Methodologies: Agile</li>
-            </ul>
-          </div>
-          <!-- Project Management & Other Skills -->
-          <div>
-            <h3 class="text-lg font-semibold mb-2">
-              Project Management & Other Skills
-            </h3>
-            <ul class="list-disc list-inside">
-              <li>Team Leadership & Management</li>
-              <li>Budget Planning & Resource Allocation</li>
-              <li>Market Research & Data Analytics</li>
-              <li>AI Research & Development</li>
-              <li>Cloud Service Migration</li>
-              <li>Digital Platforms Innovation Development</li>
-            </ul>
-          </div>
-        </div>
+      <!-- Interests & Expertise -->
+      <section id="interests" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Interests & Expertise</h2>
+        <ul class="list-disc ml-5 text-gray-700">
+          <li>
+            <strong>Autonomous Vehicles:</strong> Deeply passionate about self-driving car technology since 2016. Continuously follow and analyze the latest research, developments, and real-world applications in the field.
+          </li>
+          <li>
+            <strong>AI Research:</strong> Implemented and trained GPT-2 from scratch, following OpenAI's open-source implementation and Andrej Karpathy's course. Keen interest in applying AI to solve real-world problems.
+          </li>
+          <li>
+            <strong>Competitive Esports:</strong> Achieved top 10% global ranking in CS2 and Valorant, demonstrating strategic thinking and quick decision-making skills.
+          </li>
+          <li>
+            <strong>Continuous Learning:</strong> Actively exploring emerging technologies and their practical applications, with a focus on AI, machine learning, and autonomous systems.
+          </li>
+        </ul>
       </section>
-
-      <!-- Projects Section -->
-      <section id="projects" class="mb-12">
-        <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-1 mb-4">
-          Key Projects
-        </h2>
-        <div class="mb-6">
-          <h3 class="text-xl font-bold">Twitch Rival's SquidCraft Games</h3>
-          <p class="italic">Season 1, 2022</p>
-          <p class="mt-2">
-            Organized and managed a high-stakes gaming tournament for streamers
-            with a $100,000 prize pool, enhancing community engagement and brand
-            visibility.
-          </p>
-        </div>
-        <div class="mb-6">
-          <h3 class="text-xl font-bold">Dedsafio Bingo</h3>
-          <p class="italic">October 2021</p>
-          <p class="mt-2">
-            Developed and executed a large-scale bingo tournament for streamers,
-            featuring a $100,000 prize pool to drive participation and audience
-            growth.
-          </p>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="mb-12">
-        <h2 class="text-2xl font-semibold border-b-2 border-gray-300 pb-1 mb-4">
-          Contact
-        </h2>
-        <div class="flex flex-col md:flex-row md:space-x-6">
-          <div class="md:w-1/2 mb-6 md:mb-0">
-            <h3 class="text-lg font-semibold mb-2">Get in Touch</h3>
-            <p>
-              Email:
-              <a
-                href="mailto:juan.cedeno@example.com"
-                class="text-blue-600 hover:underline"
-                >juan.cedeno@example.com</a
-              >
-            </p>
-            <p>
-              LinkedIn:
-              <a
-                href="https://linkedin.com/in/juancedeno"
-                target="_blank"
-                class="text-blue-600 hover:underline"
-                >linkedin.com/in/juancedeno</a
-              >
-            </p>
-          </div>
-          <div class="md:w-1/2">
-            <h3 class="text-lg font-semibold mb-2">Location</h3>
-            <p>Orlando, FL</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="text-center text-gray-600 mb-6">
-        <p>© 2024 Juan Cedeno. All rights reserved.</p>
-      </footer>
     </div>
-
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-      const btn = document.querySelector(".mobile-menu-button");
-      const menu = document.querySelector(".mobile-menu");
-
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-
-      // Optional: Active link highlighting based on scroll position
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".nav-link");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 80;
-          if (pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active");
-          }
-        });
-      });
-    </script>
   </body>
 </html>
