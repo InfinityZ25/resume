@@ -5,7 +5,7 @@ layout: base.njk
 <ul>
 {%- for post in collections.all | reverse -%}
   <li>
-    <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+    <a href="{{ post.url | fixUrl | url }}">{{ post.data.title }}</a>
     <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
   </li>
 {%- endfor -%}
