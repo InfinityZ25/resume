@@ -1,0 +1,5 @@
+[install]
+packages = ["@11ty/eleventy"]
+
+[scripts]
+build = "NODE_OPTIONS='--experimental-json-modules' eleventy"

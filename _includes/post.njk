@@ -1,0 +1,10 @@
+---
+layout: base.njk
+---
+<article>
+  <h1>{{ title }}</h1>
+  {% if date %}
+    <time datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time>
+  {% endif %}
+  {{ content | safe }}
+</article>

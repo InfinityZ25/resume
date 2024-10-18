@@ -1,0 +1,12 @@
+{
+  "name": "jcedenodotus",
+  "version": "1.0.0",
+  "description": "Juan Cedeno's personal website and blog",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

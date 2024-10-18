@@ -1,0 +1,7 @@
+# Exclude everything by default
+*
+
+# Include specific files
+!index.html
+!resume/index.html
+!README.md
