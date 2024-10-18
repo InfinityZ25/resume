@@ -1,196 +1,332 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juan Cedeno - ML Engineer & Tech Enthusiast | Orlando, FL</title>
-    <meta
-      name="description"
-      content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology."
-    />
-    <meta
-      name="keywords"
-      content="Juan Cedeno, ML Engineer, Machine Learning, Tech Enthusiast, Hynix, Orlando, Florida"
-    />
-    <link rel="canonical" href="https://jcedeno.us" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      property="og:title"
-      content="Juan Cedeno - ML Engineer & Tech Enthusiast"
-    />
-    <meta
-      property="og:description"
-      content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology."
-    />
-    <meta
-      property="og:image"
-      content="https://pbs.twimg.com/media/GaIv2LCWgAAnY9J?format=png&name=small"
-    />
-    <meta property="og:url" content="https://jcedeno.us" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#4a5568" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
-    <link rel="stylesheet" href="styles.css" />
-
+    <title>Juan Cedeno - Software Engineer & AI Enthusiast</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
-      defer
-    ></script>
+    <style>
+      @page {
+        size: A4;
+        margin: 20mm;
+      }
 
-    <script src="tailwind.config.js"></script>
+      @media print {
+        body {
+          font-size: 11pt;
+          line-height: 1.4;
+          background: none;
+          /* Remove background color for print */
+        }
+
+        .container {
+          box-shadow: none;
+          background: white;
+          /* Ensure background is white */
+          margin: 0;
+          /* Remove margins for better space usage */
+          padding: 0;
+          /* Remove padding to utilize full space */
+        }
+
+        header,
+        section {
+          page-break-inside: avoid;
+        }
+
+        h2 {
+          page-break-after: avoid;
+        }
+
+        ul,
+        li {
+          page-break-inside: avoid;
+        }
+
+        .cover-letter {
+          page-break-after: always;
+        }
+      }
+    </style>
   </head>
-  <body
-    x-data="mainData"
-    :class="{ 'dark': darkMode }"
-    class="h-full font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300 no-select"
-  >
-    <canvas id="particle-bg" class="background-blur"></canvas>
-
-    <div class="fixed top-4 right-4 z-50">
-      <button
-        @click="toggleDarkMode()"
-        aria-label="Toggle Dark Mode"
-        class="p-2 rounded-full bg-white/20 dark:bg-black/20 shadow-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary animate__animated animate__fadeIn"
-      >
-        <i x-show="!darkMode" class="fas fa-moon text-xl"></i>
-        <i x-show="darkMode" class="fas fa-sun text-xl"></i>
-      </button>
-    </div>
-
-    <main
-      class="relative z-10 flex items-center justify-center min-h-screen p-4"
+  <body class="bg-gray-100 text-gray-900 font-sans">
+    <div
+      class="container mx-auto p-6 bg-white shadow-md rounded-lg my-8 max-w-4xl"
     >
-      <div
-        class="text-center max-w-md w-full p-8 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster main-card"
-        @mouseenter="focusCard(true)"
-        @mouseleave="focusCard(false)"
-      >
-        <div
-          class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary dark:border-secondary transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster profile-pic-container"
-        >
-          <img
-            src="https://pbs.twimg.com/media/GaIv2LCWgAAnY9J?format=png&name=small"
-            alt="Juan Cedeno"
-            class="w-full h-full object-cover no-select no-drag"
-            loading="eager"
-            fetchpriority="high"
-            width="128"
-            height="128"
-            ondragstart="return false;"
-            oncontextmenu="return false;"
-          />
-          <div class="profile-pic-overlay"></div>
-        </div>
-        <h1
-          class="text-4xl font-bold mb-1 name-gradient animate__animated animate__fadeInUp animate__faster"
-        >
-          Juan Cedeno
-        </h1>
-        <p
-          class="text-sm font-medium mb-4 text-black dark:text-white animate__animated animate__fadeInUp animate__faster copyable"
-          style="animation-delay: 0.1s"
-          @click="copyToClipboard('@thejcedeno')"
-        >
-          @thejcedeno
-        </p>
-        <nav
-          class="flex justify-center gap-4 mb-6 animate__animated animate__fadeInUp animate__faster"
-          style="animation-delay: 0.2s"
-        >
-          <a
-            href="https://github.com/infinityz25"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <i class="fab fa-github text-2xl"></i>
-          </a>
-          <a
-            href="https://x.com/thejcedeno"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X Profile"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://linkedin.com/in/realjcedeno"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <i class="fab fa-linkedin text-2xl"></i>
-          </a>
-          <a
-            href="mailto:dev@jcedeno.us"
-            aria-label="Email Juan Cedeno"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <i class="fas fa-envelope text-2xl"></i>
-          </a>
-        </nav>
-        <div
-          class="flex flex-col sm:flex-row justify-center gap-4 mb-6 animate__animated animate__fadeInUp animate__faster"
-          style="animation-delay: 0.3s"
-        >
-          <a
-            href="/resume"
-            class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
-          >
-            <i class="fas fa-file-alt text-xl"></i>
-            <span>Resume</span>
-          </a>
-          <button
-            @click="toggleAbout()"
-            class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
-          >
-            <i class="fas fa-info-circle text-xl"></i>
-            <span x-text="showAbout ? 'Hide About' : 'About'"></span>
-          </button>
-        </div>
-        <div
-          x-ref="aboutSection"
-          :class="{'show': showAbout}"
-          class="about-section bg-gray-100/80 dark:bg-gray-800/80 p-4 rounded-lg mt-6 text-gray-800 dark:text-gray-200"
-        >
-          <h2 class="sr-only">About Juan Cedeno</h2>
+      <!-- Professional Overview (Cover Letter) Section -->
+      <section class="cover-letter mb-12">
+        <header class="mb-6 border-b pb-4">
+          <h1 class="text-3xl font-bold">Juan Cedeno</h1>
+          <p class="mt-2">
+            (689) 248-1068 | dev@jcedeno.us |
+            <a
+              href="https://www.linkedin.com/in/realjcedeno"
+              class="text-blue-600 underline"
+              >linkedin.com/in/realjcedeno</a
+            >
+          </p>
+        </header>
+        <section id="professional-overview" class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">Professional Overview</h2>
+          <p class="mb-4">
+            As a Software Engineer and AI Researcher with over 8 years of
+            experience, I bring a unique blend of technical expertise and
+            innovative problem-solving to the table. My career spans from custom
+            Java development to cutting-edge AI solutions, demonstrating a
+            proven track record in managing large-scale projects, leading
+            technical teams, and developing scalable applications.
+          </p>
+          <p class="mb-4">
+            At Paychex, I currently lead optimization efforts for a Foundational
+            System of Records project, scaling it to handle millions of daily
+            records. Previously, as the Founder & CTO of Hynix, I successfully
+            transitioned the company from a content creator event business to an
+            AI research firm, managing a team of over 10 professionals and
+            spearheading major projects like Noobsters and Friday
+            (itsfriday.app).
+          </p>
+          <p class="mb-4">
+            My expertise in Java, Spring Boot, and various AI/ML frameworks,
+            combined with my passion for leveraging emerging technologies,
+            positions me to make significant contributions in roles that demand
+            innovation and technical leadership. I am eager to apply my skills
+            and experience to drive forward-thinking projects and deliver
+            impactful solutions.
+          </p>
           <p>
-            ML-Engineer | Tech Enthusiast<br />
-            Passionate about creating elegant solutions to complex problems. CEO
-            Hynix, building the future today.
+            I look forward to discussing how my background aligns with your
+            team's needs and contributing to the next wave of technological
+            advancements in your organization.
+          </p>
+        </section>
+      </section>
+      <!-- Professional Experience -->
+      <section id="experience" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Professional Experience</h2>
+
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Software Engineer III</h3>
+          <p class="italic">Paychex, Rochester, NY | 2022 - Present</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>
+              Lead optimization efforts for a Foundational System of Records
+              project, scaling to millions of daily records.
+            </li>
+            <li>
+              Develop and maintain applications using Spring Boot 3.2, Java 21,
+              MongoDB 7, Kafka, and RabbitMQ.
+            </li>
+            <li>
+              Upgraded legacy projects from Spring Boot 2 to 3.2 and modernized
+              JSP forms.
+            </li>
+            <li>
+              Gained extensive knowledge in network infrastructure, load
+              balancers, proxies, and VLANs.
+            </li>
+            <li>
+              Enhanced communication and teamwork skills in a corporate
+              environment.
+            </li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Founder & CTO</h3>
+          <p class="italic">Hynix, Orlando, FL | 2020 - 2022</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>
+              Founded and led Hynix, transitioning from a content creator event
+              business to an AI research firm.
+            </li>
+            <li>
+              Managed a team of 10+ professionals, focusing on large-scale
+              content creator events and AI development.
+            </li>
+            <li>
+              Spearheaded the development of Noobsters, powering major Twitch
+              events including Squid Craft Game Season 1 and Desafio Bingo.
+            </li>
+            <li>
+              Delivered events with 100k+ prize pools, attracting millions of
+              concurrent viewers on Twitch.
+            </li>
+            <li>
+              Initiated AI research and development, laying the groundwork for
+              future projects like Friday (itsfriday.app).
+            </li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Business Operations Consultant</h3>
+          <p class="italic">aseprob.com | Remote | 2022 - Present</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>
+              Assisted in transitioning aseprob.com from a traditional insurance
+              broker to a remote, online-focused business.
+            </li>
+            <li>
+              Implemented digital tools and platforms to enhance client
+              interactions and streamline operations.
+            </li>
+            <li>
+              Developed and maintained the company's online presence, including
+              website updates and digital marketing strategies.
+            </li>
+            <li>
+              Collaborated with the team to identify and integrate AI-driven
+              solutions to improve customer service and operational efficiency.
+            </li>
+            <li>
+              Provided ongoing technical support and training to ensure smooth
+              adoption of new technologies.
+            </li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="font-bold text-lg">Freelance Developer</h3>
+          <p class="italic">Orlando, FL | 2015 - 2020</p>
+          <ul class="list-disc ml-5 mt-2">
+            <li>
+              Developed custom Java solutions for the gaming industry, focusing
+              on infrastructure and event management.
+            </li>
+            <li>
+              Implemented blockchain integrations for various client
+              applications.
+            </li>
+            <li>
+              Gained broad experience in software development, project
+              management, and client relations.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Technical Skills -->
+      <section id="skills" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Technical Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p>
+              <strong>Languages:</strong> Java, C#, Python,
+              JavaScript/TypeScript, Go, Rust, Kotlin
+            </p>
+            <p>
+              <strong>Web & Frameworks:</strong> React, Angular, Next.js, Spring
+              Boot, Flask, FastAPI, HTMX
+            </p>
+            <p>
+              <strong>Databases:</strong> MongoDB, PostgreSQL, OracleDB, Redis,
+              S3, ScyllaDB
+            </p>
+          </div>
+          <div>
+            <p>
+              <strong>DevOps & Cloud:</strong> Docker, Kubernetes, Terraform,
+              AWS, GCP, Gradle
+            </p>
+            <p>
+              <strong>AI/ML:</strong> PyTorch, TensorFlow, OpenCV, GPT models,
+              LLMs, Stable Diffusion
+            </p>
+            <p>
+              <strong>Other:</strong> Blockchain Integration, Event Management,
+              Team Leadership
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Key Projects -->
+      <section id="projects" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Key Projects</h2>
+        <ul class="list-disc ml-5 text-gray-700">
+          <li>
+            <strong>Friday (itsfriday.app)</strong>: Developing an advanced
+            personal AI assistant using a hybrid model approach, auto-routing,
+            and code evaluation capabilities. Integrates TTS, STT, and real-time
+            video chat processing. (Planned Release: Q4 2024)
+          </li>
+          <li>
+            <strong>Just.Pics</strong>: Launched a commercial image generation
+            platform using Stable Diffusion models and LoRA adapters. (March
+            2023)
+          </li>
+          <li>
+            <strong>Twitch Rivals' Squid Craft Game Season 1</strong>: Developed
+            infrastructure and managed event with 100k prize pool and millions
+            of concurrent viewers. (January 2022)
+          </li>
+          <li>
+            <strong>Desafio Bingo</strong>: Large-scale Twitch event with
+            millions of concurrent viewers. (October 2021)
+          </li>
+          <li>
+            <strong>UHC Comunidades</strong>: Custom event for content creator's
+            and their communities to interact together.
+          </li>
+          <li>
+            <strong>Noobsters</strong>: Foundational technology powering
+            multiple large-scale content creator events.
+          </li>
+        </ul>
+      </section>
+      <!-- Education and Continuous Learning -->
+      <section id="education" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">
+          Education and Continuous Learning
+        </h2>
+        <div class="mb-4">
+          <h3 class="font-bold">Associate in Arts, Computer Science</h3>
+          <p>Valencia College, Orlando, FL | 2020 - 2022</p>
+          <p class="italic">
+            Transitioned to full-time AI research and development to pursue
+            innovative opportunities in the field.
           </p>
         </div>
-      </div>
-    </main>
-
-    <div id="toast">Copied to clipboard!</div>
-
-    <script src="script.js"></script>
+        <div>
+          <h3 class="font-bold">
+            Specialized AI and Machine Learning Education
+          </h3>
+          <ul class="list-disc ml-5 mt-2 text-gray-700">
+            <li>MIT OpenCourseWare: Advanced AI/ML Courses</li>
+            <li>Stanford Online: Cutting-edge AI/ML Specializations</li>
+            <li>Andrej Karpathy's Transformer Series</li>
+            <li>
+              Ongoing self-directed learning in AI and emerging technologies
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Interests & Expertise -->
+      <section id="interests" class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Interests & Expertise</h2>
+        <ul class="list-disc ml-5 text-gray-700">
+          <li>
+            <strong>Autonomous Vehicles:</strong> Deeply passionate about
+            self-driving car technology since 2016. Continuously follow and
+            analyze the latest research, developments, and real-world
+            applications in the field.
+          </li>
+          <li>
+            <strong>AI Research:</strong> Implemented and trained GPT-2 from
+            scratch, following OpenAI's open-source implementation and Andrej
+            Karpathy's course. Keen interest in applying AI to solve real-world
+            problems.
+          </li>
+          <li>
+            <strong>Competitive Esports:</strong> Achieved top 10% global
+            ranking in CS2 and Valorant, demonstrating strategic thinking and
+            quick decision-making skills.
+          </li>
+          <li>
+            <strong>Continuous Learning:</strong> Actively exploring emerging
+            technologies and their practical applications, with a focus on AI,
+            machine learning, and autonomous systems.
+          </li>
+        </ul>
+      </section>
+    </div>
   </body>
 </html>
