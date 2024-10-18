@@ -24,7 +24,7 @@
     />
     <meta
       property="og:image"
-      content="https://api.dicebear.com/6.x/micah/svg?seed=theveryrealjcedeno"
+      content="https://pbs.twimg.com/media/GaIv2LCWgAAnY9J?format=png&name=small"
     />
     <meta property="og:url" content="https://jcedeno.us" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -36,10 +36,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -51,10 +54,6 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
       defer
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
 
     <script>
       tailwind.config = {
@@ -114,14 +113,87 @@
       .animate__animated.animate__faster {
         --animate-duration: 0.5s;
       }
+      .no-select {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .copyable {
+        cursor: pointer;
+      }
+      #toast {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+      }
+      #toast.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+      .main-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .main-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .background-blur {
+        transition: filter 0.3s ease;
+      }
+      .background-blur.active {
+        filter: blur(5px);
+      }
+      .about-section {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      .about-section.show {
+        max-height: 200px;
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   </head>
   <body
     x-data="mainData"
     :class="{ 'dark': darkMode }"
-    class="h-full font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300"
+    class="h-full font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300 no-select"
   >
-    <canvas id="particle-bg"></canvas>
+    <canvas id="particle-bg" class="background-blur"></canvas>
 
     <div class="fixed top-4 right-4 z-50">
       <button
@@ -138,14 +210,16 @@
       class="relative z-10 flex items-center justify-center min-h-screen p-4"
     >
       <div
-        class="text-center max-w-md w-full p-8 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster"
+        class="text-center max-w-md w-full p-8 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster main-card"
+        @mouseenter="focusCard(true)"
+        @mouseleave="focusCard(false)"
       >
         <div
           class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary dark:border-secondary transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster"
         >
           <img
-            src="https://api.dicebear.com/6.x/micah/svg?seed=theveryrealjcedeno"
-            alt="Avatar of Juan Cedeno"
+            src="https://pbs.twimg.com/media/GaIv2LCWgAAnY9J?format=png&name=small"
+            alt="Juan Cedeno"
             class="w-full h-full object-cover"
             loading="eager"
             fetchpriority="high"
@@ -159,8 +233,9 @@
           Juan Cedeno
         </h1>
         <p
-          class="text-sm font-medium mb-4 text-black dark:text-white animate__animated animate__fadeInUp animate__faster"
+          class="text-sm font-medium mb-4 text-black dark:text-white animate__animated animate__fadeInUp animate__faster copyable"
           style="animation-delay: 0.1s"
+          @click="copyToClipboard('@thejcedeno')"
         >
           @thejcedeno
         </p>
@@ -219,18 +294,17 @@
             <span>Resume</span>
           </a>
           <button
-            @click="showAbout = !showAbout"
+            @click="toggleAbout()"
             class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
           >
             <i class="fas fa-info-circle text-xl"></i>
-            <span>About</span>
+            <span x-text="showAbout ? 'Hide About' : 'About'"></span>
           </button>
         </div>
-        <section
-          x-show="showAbout"
-          x-transition:enter="animate__animated animate__fadeIn animate__faster"
-          x-transition:leave="animate__animated animate__fadeOut animate__faster"
-          class="bg-gray-100/80 dark:bg-gray-800/80 p-4 rounded-lg mt-6 text-gray-800 dark:text-gray-200"
+        <div
+          x-ref="aboutSection"
+          :class="{'show': showAbout}"
+          class="about-section bg-gray-100/80 dark:bg-gray-800/80 p-4 rounded-lg mt-6 text-gray-800 dark:text-gray-200"
         >
           <h2 class="sr-only">About Juan Cedeno</h2>
           <p>
@@ -238,9 +312,12 @@
             Passionate about creating elegant solutions to complex problems. CEO
             Hynix, building the future today.
           </p>
-        </section>
+        </div>
       </div>
     </main>
+
+    <div id="toast">Copied to clipboard!</div>
+
     <script>
       document.addEventListener("alpine:init", () => {
         Alpine.data("mainData", () => ({
@@ -269,6 +346,9 @@
             this.$nextTick(() => {
               this.updateParticleColor();
             });
+          },
+          toggleAbout() {
+            this.showAbout = !this.showAbout;
           },
           initParticleBackground() {
             const scene = new THREE.Scene();
@@ -363,6 +443,31 @@
             };
 
             this.updateParticleColor(); // Initial color set
+          },
+          copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(
+              () => {
+                this.showToast();
+              },
+              (err) => {
+                console.error("Could not copy text: ", err);
+              }
+            );
+          },
+          showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(() => {
+              toast.className = toast.className.replace("show", "");
+            }, 3000);
+          },
+          focusCard(isFocused) {
+            const bg = document.getElementById("particle-bg");
+            if (isFocused) {
+              bg.classList.add("active");
+            } else {
+              bg.classList.remove("active");
+            }
           },
         }));
       });
