@@ -17,6 +17,13 @@ document.addEventListener("alpine:init", () => {
       this.$nextTick(() => {
         this.initParticleBackground();
       });
+
+      // Event listener for the "." key press
+      document.addEventListener("keydown", (event) => {
+        if (event.key === ".") {
+          window.location.href = "https://github.dev/InfinityZ25/resume/index.html";
+        }
+      });
     },
     toggleDarkMode() {
       this.darkMode = !this.darkMode;
