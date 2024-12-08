@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Juan Cedeno - ML Engineer, Researcher, and Founder | Orlando, FL</title>
+  <!-- Meta tags remain the same -->
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Base Theme Styles */
+    body {
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s ease;
+    }
+
+    /* Theme Variations */
+    body.light-linear {
+      background: linear-gradient(135deg,
+          #f6f7f9 0%,
+          #e3e8ef 50%,
+          #d1d8e6 100%);
+    }
+
+    body.light-radial {
+      background: radial-gradient(circle at center,
+          #ffffff 0%,
+          #f0f4f8 50%,
+          #e2e8f0 100%);
+    }
+
+    body.light-conic {
+      background: conic-gradient(from 45deg,
+          #f8fafc,
+          #edf2f7,
+          #e2e8f0,
+          #edf2f7,
+          #f8fafc);
+    }
+
+    body.dark-mesh {
+      background: 
+        linear-gradient(135deg, #1a1f2c 25%, transparent 25%) -50px 0,
+        linear-gradient(225deg, #1a1f2c 25%, transparent 25%) -50px 0,
+        linear-gradient(315deg, #1a1f2c 25%, transparent 25%),
+        linear-gradient(45deg, #1a1f2c 25%, transparent 25%);
+      background-size: 100px 100px;
+      background-color: #131720;
+    }
+
+    body.dark-wave {
+      background: linear-gradient(45deg,
+          #13151a 0%,
+          #191c24 50%,
+          #1f2937 100%);
+      background-size: 400% 400%;
+      animation: wave 15s ease infinite;
+    }
+
+    body.neon {
+      background: linear-gradient(45deg,
+          #ff1cf7 0%,
+          #00ff8f 50%,
+          #00b8ff 100%);
+      background-size: 400% 400%;
+      animation: neon 10s ease infinite;
+    }
+
+    body.cyberpunk {
+      background: 
+        linear-gradient(90deg, 
+          rgba(255, 83, 168, 0.8) 0%,
+          rgba(83, 230, 255, 0.8) 100%),
+        repeating-linear-gradient(45deg,
+          rgba(0, 0, 0, 0.1) 0px,
+          rgba(0, 0, 0, 0.1) 2px,
+          transparent 2px,
+          transparent 4px);
+    }
+
+    /* Continue with more theme variations... */
+
+    @keyframes wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes neon {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Additional utility classes */
+    .no-select {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .no-drag {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head><body x-data="mainData" class="font-sans text-gray-800 transition-colors duration-300 no-select">
+    <canvas id="particle-bg"></canvas>
+  
+    <!-- Theme Switcher -->
+    <div class="fixed top-4 right-4 z-50 flex space-x-2">
+      <button @click="toggleTheme()" aria-label="Toggle Theme"
+        class="p-2 rounded-full glass-effect shadow-lg transition-all duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-primary animate__animated animate__fadeIn">
+        <i x-show="currentThemeIndex === 0" class="fas fa-sun text-xl"></i>
+        <i x-show="currentThemeIndex === 1" class="fas fa-moon text-xl"></i>
+        <i x-show="currentThemeIndex === 2" class="fas fa-circle-half-stroke text-xl"></i>
+        <i x-show="currentThemeIndex === 3" class="fas fa-leaf text-xl"></i>
+        <i x-show="currentThemeIndex === 4" class="fas fa-heart text-xl"></i>
+        <i x-show="currentThemeIndex === 5" class="fas fa-cloud text-xl"></i>
+        <i x-show="currentThemeIndex === 6" class="fas fa-star text-xl"></i>
+        <i x-show="currentThemeIndex === 7" class="fas fa-laptop-code text-xl"></i>
+        <i x-show="currentThemeIndex === 8" class="fas fa-palette text-xl"></i>
+      </button>
+    </div>
+  
+    <div class="flex h-screen p-6 px-16">
+      <!-- Main container -->
+      <div class="flex w-full gap-6 max-w-[2100px] mx-auto">
+        <!-- Chat Section -->
+        <div class="w-1/4 h-full glass-effect rounded-3xl shadow-xl">
+          <div class="p-6 h-full">
+            <h2 class="text-2xl font-bold mb-6 name-gradient">Live Chat</h2>
+            <div class="chat-container h-[calc(100%-3rem)] overflow-y-auto">
+              <!-- Chat messages will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
+  
+        <!-- Main Content Section -->
+        <div class="w-4/5 flex flex-col gap-8 h-full">
+          <!-- Grid container -->
+          <div class="grid grid-rows-[2fr_1fr] gap-6 h-full">
+            <!-- Camera Container -->
+            <div class="glass-effect rounded-3xl shadow-xl overflow-hidden relative">
+              <div class="absolute top-4 right-4 space-x-2">
+                <button class="p-2 rounded-full glass-effect hover:bg-white/30 transition-all">
+                  <i class="fas fa-camera text-xl"></i>
+                </button>
+                <button class="p-2 rounded-full glass-effect hover:bg-white/30 transition-all">
+                  <i class="fas fa-microphone text-xl"></i>
+                </button>
+              </div>
+              <div class="w-full h-full bg-transparent">
+                <!-- OBS camera source -->
+              </div>
+            </div>
+  
+            <!-- Info Stream Section -->
+            <div class="glass-effect rounded-3xl shadow-xl">
+              <div class="p-8 h-full">
+                <div class="grid grid-cols-3 gap-8 h-full">
+                  <!-- Social Media Links -->
+                  <div class="space-y-6">
+                    <h3 class="text-2xl font-bold flex items-center name-gradient">
+                      <i class="fas fa-share-alt mr-3"></i>
+                      Social
+                    </h3>
+                    <div class="space-y-4">
+                      <a href="#" class="social-link twitter">
+                        <i class="fab fa-x w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span>@thejcedeno</span>
+                      </a>
+                      <a href="#" class="social-link github">
+                        <i class="fab fa-github w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span>@InfinityZ25</span>
+                      </a>
+                      <!-- More social links -->
+                    </div>
+                  </div>
+  
+                  <!-- Stream Info -->
+                  <div class="space-y-6">
+                    <h3 class="text-2xl font-bold flex items-center name-gradient">
+                      <i class="fas fa-broadcast-tower mr-3"></i>
+                      Stream Info
+                    </h3>
+                    <div class="space-y-4">
+                      <div class="info-item">
+                        <span class="w-8 text-2xl">🎮</span>
+                        <span>Building Friday AI</span>
+                      </div>
+                      <!-- More info items -->
+                    </div>
+                  </div>
+  
+                  <!-- Latest Updates -->
+                  <div class="space-y-6">
+                    <h3 class="text-2xl font-bold flex items-center name-gradient">
+                      <i class="fas fa-bell mr-3"></i>
+                      Updates
+                    </h3>
+                    <div class="space-y-4">
+                      <div class="update-card">
+                        <p class="text-sm">🆕 New Friday AI Update v2.0</p>
+                        <p class="text-xs mt-1">Released yesterday</p>
+                      </div>
+                      <!-- More update cards -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Custom classes will be defined in the next part -->
+    <style>
+      .social-link {
+        @apply flex items-center space-x-3 text-lg transition-all duration-300 group hover:scale-105;
+      }
+      
+      .info-item {
+        @apply flex items-center space-x-3 text-lg bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-all duration-300;
+      }
+      
+      .update-card {
+        @apply p-3 glass-effect rounded-lg hover:bg-white/20 transition-all duration-300;
+      }
+    </style><style>
+  /* Advanced Theme Variations */
+  body.aurora {
+    background: linear-gradient(215deg,
+        #001f3f 0%,
+        #003366 25%,
+        #1a4c7c 50%,
+        #267326 75%,
+        #40bf40 100%);
+    animation: aurora 15s ease infinite;
+  }
+
+  body.gradient-mesh {
+    background-color: #330033;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(225,39%,30%,1) 0, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(339,49%,30%,1) 0, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(283,39%,30%,1) 0, transparent 50%);
+  }
+
+  body.holographic {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 25%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(10px);
+    animation: holographic 5s ease infinite;
+  }
+
+  body.synthwave {
+    background: linear-gradient(180deg,
+        #ff1b6b 0%,
+        #45caff 100%);
+    animation: synthwave 15s ease infinite;
+  }
+
+  body.minimal {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  body.minimal-dark {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  /* Enhanced Glass Effects */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .glass-effect:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Advanced Animations */
+  @keyframes aurora {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes holographic {
+    0% {
+      background-position: 0% 50%;
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      background-position: 100% 150%;
+      filter: hue-rotate(180deg);
+    }
+    100% {
+      background-position: 0% 50%;
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  @keyframes synthwave {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  /* Enhanced Card Styles */
+  .social-link {
+    @apply flex items-center space-x-3 text-lg transition-all duration-300 group;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .social-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+  }
+
+  .social-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Theme-specific Gradients for Text */
+  .aurora .name-gradient {
+    background: linear-gradient(to right, #40bf40, #003366);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .synthwave .name-gradient {
+    background: linear-gradient(to right, #ff1b6b, #45caff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .holographic .name-gradient {
+    background: linear-gradient(to right, #ff1cf7, #00ff8f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: holographic-text 5s ease infinite;
+  }
+
+  /* Enhanced Card Animations */
+  .update-card {
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .update-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Particle Effects */
+  #particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  body:hover #particle-bg {
+    opacity: 0.8;
+  }
+
+  /* Theme Transition Effects */
+  .theme-transition {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Responsive Design Enhancements */
+  @media (max-width: 768px) {
+    .glass-effect {
+      backdrop-filter: blur(5px);
+    }
+    
+    .update-card {
+      transform: none !important;
+    }
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+</style><script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.data("mainData", () => ({
+        currentThemeIndex: parseInt(localStorage.getItem("themeIndex") || "0"),
+        themes: [
+          'light-linear',
+          'dark-mesh',
+          'minimal-dark',
+          'aurora',
+          'synthwave',
+          'holographic',
+          'cyberpunk',
+          'gradient-mesh',
+          'minimal'
+        ],
+        themeColors: {
+          'light-linear': { particle: '#4a5568', text: '#2d3748' },
+          'dark-mesh': { particle: '#ff79c6', text: '#f8f8f2' },
+          'minimal-dark': { particle: '#ffffff', text: '#ffffff' },
+          'aurora': { particle: '#40bf40', text: '#d1fae5' },
+          'synthwave': { particle: '#ff1b6b', text: '#ffffff' },
+          'holographic': { particle: '#ff1cf7', text: '#ffffff' },
+          'cyberpunk': { particle: '#00ff8f', text: '#ffffff' },
+          'gradient-mesh': { particle: '#ff79c6', text: '#ffffff' },
+          'minimal': { particle: '#000000', text: '#000000' }
+        },
+        particleSystem: null,
+        chatMessages: [],
+  
+        init() {
+          this.applyTheme(this.themes[this.currentThemeIndex]);
+          this.initKeyboardShortcuts();
+          this.initParticleSystem();
+          this.initChatSystem();
+        },
+  
+        initKeyboardShortcuts() {
+          document.addEventListener("keydown", (event) => {
+            if (event.key === ".") {
+              window.location.href = "https://github.dev/InfinityZ25/resume/index.html";
+            }
+            // Theme switching with number keys
+            if (event.key >= '1' && event.key <= '9') {
+              const themeIndex = parseInt(event.key) - 1;
+              if (themeIndex < this.themes.length) {
+                this.currentThemeIndex = themeIndex;
+                this.applyTheme(this.themes[themeIndex]);
+              }
+            }
+          });
+        },
+  
+        toggleTheme() {
+          this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length;
+          localStorage.setItem("themeIndex", this.currentThemeIndex);
+          this.applyTheme(this.themes[this.currentThemeIndex]);
+        },
+  
+        applyTheme(theme) {
+          // Remove all theme classes
+          document.body.classList.remove(...this.themes);
+          // Add new theme class
+          document.body.classList.add(theme);
+          // Update particle colors
+          this.updateParticleColors(theme);
+          // Update meta theme color
+          document.querySelector('meta[name="theme-color"]').setAttribute(
+            'content',
+            this.themeColors[theme].particle
+          );
+        },
+  
+        initParticleSystem() {
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+          );
+          const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById("particle-bg"),
+            alpha: true,
+          });
+  
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(window.devicePixelRatio);
+  
+          // Create particles
+          const particles = new THREE.BufferGeometry();
+          const particleCount = window.innerWidth < 768 ? 2500 : 5000;
+          const positions = new Float32Array(particleCount * 3);
+          const colors = new Float32Array(particleCount * 3);
+  
+          for (let i = 0; i < particleCount * 3; i += 3) {
+            positions[i] = (Math.random() - 0.5) * 10;
+            positions[i + 1] = (Math.random() - 0.5) * 10;
+            positions[i + 2] = (Math.random() - 0.5) * 10;
+  
+            colors[i] = Math.random();
+            colors[i + 1] = Math.random();
+            colors[i + 2] = Math.random();
+          }
+  
+          particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+          particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  
+          const material = new THREE.PointsMaterial({
+            size: 0.015,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8,
+          });
+  
+          this.particleSystem = new THREE.Points(particles, material);
+          scene.add(this.particleSystem);
+  
+          camera.position.z = 5;
+  
+          // Mouse interaction
+          let mouseX = 0;
+          let mouseY = 0;
+          let targetRotationX = 0;
+          let targetRotationY = 0;
+  
+          document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+  
+            targetRotationX = mouseY * 0.5;
+            targetRotationY = mouseX * 0.5;
+          });
+  
+          // Animation loop
+          const animate = () => {
+            requestAnimationFrame(animate);
+  
+            // Smooth rotation
+            this.particleSystem.rotation.x += (targetRotationX - this.particleSystem.rotation.x) * 0.05;
+            this.particleSystem.rotation.y += (targetRotationY - this.particleSystem.rotation.y) * 0.05;
+  
+            renderer.render(scene, camera);
+          };
+  
+          animate();
+  
+          // Handle window resize
+          window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          });
+        },
+  
+        updateParticleColors(theme) {
+          if (!this.particleSystem) return;
+  
+          const colors = this.particleSystem.geometry.attributes.color;
+          const themeColor = this.themeColors[theme].particle;
+          const color = new THREE.Color(themeColor);
+  
+          for (let i = 0; i < colors.count; i++) {
+            colors.setXYZ(i, color.r, color.g, color.b);
+          }
+  
+          colors.needsUpdate = true;
+        },
+  
+        initChatSystem() {
+          // Simulate chat messages
+          setInterval(() => {
+            if (this.chatMessages.length > 50) {
+              this.chatMessages.shift();
+            }
+            
+            const messages = [
+              "Hello from Paris! 🇫🇷",
+              "Amazing stream!",
+              "Can you explain that last part?",
+              "Just subscribed! 🎉",
+              "Interesting approach to ML!"
+            ];
+  
+            this.chatMessages.push({
+              id: Date.now(),
+              user: `User${Math.floor(Math.random() * 1000)}`,
+              message: messages[Math.floor(Math.random() * messages.length)],
+              timestamp: new Date().toLocaleTimeString()
+            });
+  
+            this.$nextTick(() => {
+              const chatContainer = document.querySelector('.chat-container');
+              chatContainer.scrollTop = chatContainer.scrollHeight;
+            });
+          }, 5000);
+        }
+      }));
+    });
+  </script>
+  </body>
+  </html>
