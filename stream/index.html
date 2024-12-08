@@ -57,8 +57,202 @@
     ></script>
 
     <script src="tailwind.config.js"></script>
+    <style>
+              html,
+      body {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+      }
 
-    <link rel="stylesheet" href="styles.css" />
+      body {
+          display: flex;
+          flex-direction: column;
+          background: linear-gradient(135deg,
+                  #2a1215 0%,
+                  #241620 50%,
+                  #1a0f2c 100%);
+      }
+
+      body.dark {
+          background: linear-gradient(135deg,
+                  #1c1c1c 0%,
+                  #2c2c2c 50%,
+                  #3c3c3c 100%);
+      }
+
+      .name-gradient {
+          background: linear-gradient(to right, #1a202c, #2d3748);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+      }
+
+      .dark .name-gradient {
+          background: linear-gradient(to right, #ff79c6, #8be9fd);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          filter: drop-shadow(0px 2px 2px rgba(255, 255, 255, 0.3));
+      }
+
+      #particle-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+      }
+
+      .animate__animated.animate__faster {
+          --animate-duration: 0.5s;
+      }
+
+      .no-select {
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+
+      .no-drag {
+          -webkit-user-drag: none;
+          -khtml-user-drag: none;
+          -moz-user-drag: none;
+          -o-user-drag: none;
+          user-drag: none;
+      }
+
+      .copyable {
+          cursor: pointer;
+      }
+
+      #toast {
+          visibility: hidden;
+          min-width: 250px;
+          margin-left: -125px;
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          border-radius: 2px;
+          padding: 16px;
+          position: fixed;
+          z-index: 1;
+          left: 50%;
+          bottom: 30px;
+      }
+
+      #toast.show {
+          visibility: visible;
+          animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @keyframes fadein {
+          from {
+              bottom: 0;
+              opacity: 0;
+          }
+
+          to {
+              bottom: 30px;
+              opacity: 1;
+          }
+      }
+
+      @keyframes fadeout {
+          from {
+              bottom: 30px;
+              opacity: 1;
+          }
+
+          to {
+              bottom: 0;
+              opacity: 0;
+          }
+      }
+
+      .main-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          width: 100%;
+          max-width: 400px;
+          margin: auto;
+      }
+
+      .main-card:hover {
+          transform: scale(1.02);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .background-blur {
+          transition: filter 0.3s ease;
+      }
+
+      .background-blur.active {
+          filter: blur(5px);
+      }
+
+      .about-section {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+          opacity: 0;
+          transform: translateY(-20px);
+      }
+
+      .about-section.show {
+          max-height: 200px;
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      .profile-pic-container {
+          position: relative;
+          width: 128px;
+          height: 128px;
+          overflow: hidden;
+          margin: 0 auto;
+      }
+
+      .profile-pic-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: transparent;
+      }
+
+      @media (max-width: 640px) {
+          .main-card {
+              padding: 1rem;
+          }
+
+          .profile-pic-container {
+              width: 96px;
+              height: 96px;
+          }
+      }
+
+      #dollar-icon {
+          position: fixed;
+          bottom: 20px;
+          left: 20px;
+          font-size: 24px;
+          cursor: pointer;
+          z-index: 50;
+          opacity: 0.7;
+          transition: opacity 0.3s;
+      }
+
+      #dollar-icon:hover {
+          opacity: 1;
+      }
+    </style>
   </head>
   <body
     x-data="mainData"
@@ -85,139 +279,167 @@
       </button>
     </div>
 
-    <main class="flex-grow flex items-center justify-center p-4">
-      <div
-        class="text-center bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate__animated animate__fadeIn animate__faster main-card"
-        @mouseenter="focusCard(true)"
-        @mouseleave="focusCard(false)"
-      >
-        <div
-          class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-primary dark:border-secondary transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster profile-pic-container"
-        >
-          <img
-            src="assets/photo.png"
-            alt="Juan Cedeno"
-            class="w-full h-full object-cover no-select no-drag"
-            loading="eager"
-            fetchpriority="high"
-            width="128"
-            height="128"
-            ondragstart="return false;"
-            oncontextmenu="return false;"
-          />
-          <div class="profile-pic-overlay"></div>
-        </div>
-        <h1
-          class="text-3xl sm:text-4xl font-bold mb-1 name-gradient animate__animated animate__fadeInUp animate__faster"
-        >
-          Juan Cedeno
-        </h1>
-        <p
-          class="text-sm font-medium mb-4 text-black dark:text-white animate__animated animate__fadeInUp animate__faster copyable"
-          style="animation-delay: 0.1s"
-          @click="copyToClipboard('@thejcedeno')"
-        >
-          @thejcedeno
-        </p>
-        <nav
-          class="flex justify-center gap-4 mb-4 sm:mb-6 animate__animated animate__fadeInUp animate__faster"
-          style="animation-delay: 0.2s"
-        >
-          <a
-            href="https://github.com/infinityz25"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <i class="fab fa-github text-2xl"></i>
-          </a>
-          <a
-            href="https://x.com/thejcedeno"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X Profile"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://linkedin.com/in/realjcedeno"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <i class="fab fa-linkedin text-2xl"></i>
-          </a>
-          <a
-            href="mailto:dev@jcedeno.us"
-            aria-label="Email Juan Cedeno"
-            class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary transition-colors duration-300"
-          >
-            <i class="fas fa-envelope text-2xl"></i>
-          </a>
-        </nav>
-        <div
-          class="flex flex-col sm:flex-row justify-center gap-4 mb-4 sm:mb-6 animate__animated animate__fadeInUp animate__faster"
-          style="animation-delay: 0.3s"
-        >
-          <a
-            href="/resume"
-            class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
-          >
-            <i class="fas fa-file-alt text-xl"></i>
-            <span>Resume</span>
-          </a>
-          <button
-            @click="toggleAbout()"
-            class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary/20 dark:bg-secondary/20 hover:bg-primary/30 dark:hover:bg-secondary/30 transition-all duration-300 text-sm font-semibold text-primary dark:text-secondary"
-          >
-            <i class="fas fa-info-circle text-xl"></i>
-            <span x-text="showAbout ? 'Hide About' : 'About'"></span>
-          </button>
-        </div>
-        <div
-          x-ref="aboutSection"
-          :class="{'show': showAbout}"
-          class="about-section bg-gray-100/80 dark:bg-gray-800/80 p-4 rounded-lg mt-4 sm:mt-6 text-gray-800 dark:text-gray-200"
-        >
-          <h2 class="sr-only">About Juan Cedeno</h2>
-          <p>
-            ML-Engineer | Tech Enthusiast<br />
-            Passionate about creating elegant solutions to complex problems. CEO
-            Hynix, building the future today.
-          </p>
-        </div>
-      </div>
-    </main>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("mainData", () => ({
+          darkMode: localStorage.getItem("theme") === "dark",
+          showAbout: false,
+          init() {
+            if (
+              localStorage.theme === "dark" ||
+              (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+              document.documentElement.classList.add("dark");
+              this.darkMode = true;
+            } else {
+              document.documentElement.classList.remove("dark");
+              this.darkMode = false;
+            }
+            this.$nextTick(() => {
+              this.initParticleBackground();
+            });
 
-    <div id="toast">Copied to clipboard!</div>
+            // Event listener for the "." key press
+            document.addEventListener("keydown", (event) => {
+              if (event.key === ".") {
+                window.location.href =
+                  "https://github.dev/InfinityZ25/resume/index.html";
+              }
+            });
+          },
+          toggleDarkMode() {
+            this.darkMode = !this.darkMode;
+            localStorage.theme = this.darkMode ? "dark" : "light";
+            document.documentElement.classList.toggle("dark", this.darkMode);
+            this.$nextTick(() => {
+              this.updateParticleColor();
+            });
+          },
+          toggleAbout() {
+            this.showAbout = !this.showAbout;
+          },
+          initParticleBackground() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(
+              75,
+              window.innerWidth / window.innerHeight,
+              0.1,
+              1000
+            );
+            const renderer = new THREE.WebGLRenderer({
+              canvas: document.getElementById("particle-bg"),
+              alpha: true,
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
 
-    <div
-      id="dollar-icon"
-      class="text-primary dark:text-secondary"
-      x-data="{ clickCount: 0, lastClickTime: 0 }"
-      @click="
-        const now = new Date().getTime();
-        if (now - lastClickTime < 500) {
-          clickCount++;
-          if (clickCount === 4) {
-            window.location.href = 'https://cash.app/$thejcedeno';
-          }
-        } else {
-          clickCount = 1;
-        }
-        lastClickTime = now;
-      "
-    >
-      <i class="fas fa-dollar-sign"></i>
-    </div>
+            const particles = new THREE.BufferGeometry();
+            const particleCount = 5000;
+            const posArray = new Float32Array(particleCount * 3);
+            const colorArray = new Float32Array(particleCount * 3);
 
-    <script src="script.js"></script>
+            for (let i = 0; i < particleCount * 3; i += 3) {
+              posArray[i] = (Math.random() - 0.5) * 5;
+              posArray[i + 1] = (Math.random() - 0.5) * 5;
+              posArray[i + 2] = (Math.random() - 0.5) * 5;
+
+              colorArray[i] = Math.random();
+              colorArray[i + 1] = Math.random();
+              colorArray[i + 2] = Math.random();
+            }
+
+            particles.setAttribute(
+              "position",
+              new THREE.BufferAttribute(posArray, 3)
+            );
+            particles.setAttribute(
+              "color",
+              new THREE.BufferAttribute(colorArray, 3)
+            );
+
+            const material = new THREE.PointsMaterial({
+              size: 0.005,
+              vertexColors: true,
+            });
+
+            const particlesMesh = new THREE.Points(particles, material);
+            scene.add(particlesMesh);
+
+            camera.position.z = 2;
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            document.addEventListener("mousemove", (event) => {
+              mouseX = event.clientX / window.innerWidth - 0.5;
+              mouseY = event.clientY / window.innerHeight - 0.5;
+            });
+
+            const animate = () => {
+              requestAnimationFrame(animate);
+
+              particlesMesh.rotation.y += 0.001;
+              particlesMesh.rotation.x += mouseY * 0.001;
+              particlesMesh.rotation.y += mouseX * 0.001;
+
+              renderer.render(scene, camera);
+            };
+
+            animate();
+
+            window.addEventListener("resize", () => {
+              camera.aspect = window.innerWidth / window.innerHeight;
+              camera.updateProjectionMatrix();
+              renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            this.updateParticleColor = () => {
+              const colors = particles.attributes.color;
+              for (let i = 0; i < particleCount * 3; i += 3) {
+                if (this.darkMode) {
+                  colors.setXYZ(i / 3, 1, 1, 1); // White for dark mode
+                } else {
+                  // Pastel colors for light mode
+                  colors.setXYZ(
+                    i / 3,
+                    0.5 + Math.random() * 0.5,
+                    0.5 + Math.random() * 0.5,
+                    0.5 + Math.random() * 0.5
+                  );
+                }
+              }
+              colors.needsUpdate = true;
+            };
+
+            this.updateParticleColor(); // Initial color set
+          },
+          copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(
+              () => {
+                this.showToast();
+              },
+              (err) => {
+                console.error("Could not copy text: ", err);
+              }
+            );
+          },
+          showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(() => {
+              toast.className = toast.className.replace("show", "");
+            }, 3000);
+          },
+          focusCard(isFocused) {
+            const bg = document.getElementById("particle-bg");
+            if (isFocused) {
+              bg.classList.add("active");
+            } else {
+              bg.classList.remove("active");
+            }
+          },
+        }));
+      });
+    </script>
   </body>
 </html>
