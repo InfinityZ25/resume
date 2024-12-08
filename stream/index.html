@@ -1,391 +1,408 @@
 <!DOCTYPE html>
 <html lang="en" class="h-full">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>
-      Juan Cedeno - ML Engineer, Researcher, and Founder | Orlando, FL
-    </title>
-    <meta
-      name="description"
-      content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology."
-    />
-    <meta
-      name="keywords"
-      content="Juan Cedeno, ML Engineer, Machine Learning, Tech Enthusiast, Hynix, Orlando, Florida"
-    />
-    <link rel="canonical" href="https://jcedeno.us" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      property="og:title"
-      content="Juan Cedeno - ML Engineer & Tech Enthusiast"
-    />
-    <meta
-      property="og:description"
-      content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology."
-    />
-    <meta property="og:url" content="https://jcedeno.us" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#4a5568" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>
+    Juan Cedeno - ML Engineer, Researcher, and Founder | Orlando, FL
+  </title>
+  <meta name="description"
+    content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology." />
+  <meta name="keywords"
+    content="Juan Cedeno, ML Engineer, Machine Learning, Tech Enthusiast, Hynix, Orlando, Florida" />
+  <link rel="canonical" href="https://jcedeno.us" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Juan Cedeno - ML Engineer & Tech Enthusiast" />
+  <meta property="og:description"
+    content="Juan Cedeno, ML Engineer and CEO of Hynix in Orlando, FL. Passionate about creating elegant solutions to complex problems in machine learning and technology." />
+  <meta property="og:url" content="https://jcedeno.us" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#4a5568" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
-      defer
-    ></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <script src="tailwind.config.js"></script>
-    <style>
-      html,
-      body {
-          height: 100%;
-          width: 100%;
-          margin: 0;
-          padding: 0;
-          overflow-x: hidden;
-      }
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
-      body {
-          display: flex;
-          flex-direction: column;
-          background: linear-gradient(135deg,
-                  #2a1215 0%,
-                  #241620 50%,
-                  #1a0f2c 100%);
-      }
+  <script src="tailwind.config.js"></script>
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-      body.dark {
-          background: linear-gradient(135deg,
-                  #1c1c1c 0%,
-                  #2c2c2c 50%,
-                  #3c3c3c 100%);
-      }
+    body {
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg,
+          #2a1215 0%,
+          #241620 50%,
+          #1a0f2c 100%);
+    }
 
-      .name-gradient {
-          background: linear-gradient(to right, #1a202c, #2d3748);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
-      }
+    body.dark {
+      background: linear-gradient(135deg,
+          #1c1c1c 0%,
+          #2c2c2c 50%,
+          #3c3c3c 100%);
+    }
 
-      .dark .name-gradient {
-          background: linear-gradient(to right, #ff79c6, #8be9fd);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          filter: drop-shadow(0px 2px 2px rgba(255, 255, 255, 0.3));
-      }
+    .name-gradient {
+      background: linear-gradient(to right, #1a202c, #2d3748);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+    }
 
-      #particle-bg {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-      }
+    .dark .name-gradient {
+      background: linear-gradient(to right, #ff79c6, #8be9fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0px 2px 2px rgba(255, 255, 255, 0.3));
+    }
 
-      .animate__animated.animate__faster {
-          --animate-duration: 0.5s;
-      }
+    #particle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
-      .no-select {
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-      }
+    .animate__animated.animate__faster {
+      --animate-duration: 0.5s;
+    }
 
-      .no-drag {
-          -webkit-user-drag: none;
-          -khtml-user-drag: none;
-          -moz-user-drag: none;
-          -o-user-drag: none;
-          user-drag: none;
-      }
+    .no-select {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
+    .no-drag {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
+
+    .main-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .main-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .profile-pic-container {
+      position: relative;
+      width: 128px;
+      height: 128px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .profile-pic-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    @media (max-width: 640px) {
       .main-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          width: 100%;
-          max-width: 400px;
-          margin: auto;
-      }
-
-      .main-card:hover {
-          transform: scale(1.02);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        padding: 1rem;
       }
 
       .profile-pic-container {
-          position: relative;
-          width: 128px;
-          height: 128px;
-          overflow: hidden;
-          margin: 0 auto;
+        width: 96px;
+        height: 96px;
       }
+    }
+  </style>
+</head>
 
-      .profile-pic-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: transparent;
-      }
+<body x-data="mainData" :class="{ 'dark': darkMode }"
+  class="font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300 no-select">
+  <canvas id="particle-bg"></canvas>
 
-      @media (max-width: 640px) {
-          .main-card {
-              padding: 1rem;
-          }
+  <div class="fixed top-4 right-4 z-50 flex space-x-2">
+    <button @click="toggleDarkMode()" aria-label="Toggle Dark Mode"
+      class="p-2 rounded-full bg-white/20 dark:bg-black/20 shadow-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary animate__animated animate__fadeIn">
+      <i x-show="!darkMode" class="fas fa-moon text-xl"></i>
+      <i x-show="darkMode" class="fas fa-sun text-xl"></i>
+    </button>
+  </div>
 
-          .profile-pic-container {
-              width: 96px;
-              height: 96px;
-          }
-      }
-    </style>
-  </head>
-  <body
-    x-data="mainData"
-    :class="{ 'dark': darkMode }"
-    class="font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300 no-select"
-  >
-    <canvas id="particle-bg"></canvas>
-
-    <div class="fixed top-4 right-4 z-50 flex space-x-2">
-      <button
-        @click="toggleDarkMode()"
-        aria-label="Toggle Dark Mode"
-        class="p-2 rounded-full bg-white/20 dark:bg-black/20 shadow-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-black/30 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary animate__animated animate__fadeIn"
-      >
-        <i x-show="!darkMode" class="fas fa-moon text-xl"></i>
-        <i x-show="darkMode" class="fas fa-sun text-xl"></i>
-      </button>
-    </div>
-
-    <div class="flex min-h-screen p-6">
-        <!-- Main container with proper width distribution -->
-        <div class="flex w-full gap-6 max-w-[2100px] mx-auto">
-            <!-- Chat Section (25%) -->
-            <div class="w-1/4 bg-white/10 backdrop-blur-md rounded-3xl shadow-xl border border-white/10">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold mb-6 text-white">Live Chat</h2>
-                    <!-- Chat content goes here -->
-                </div>
-            </div>
-
-            <!-- Main Content Section (75%) -->
-            <div class="w-3/4 flex flex-col gap-6">
-                <!-- Camera Square Container -->
-                <div class="aspect-square w-full max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden border border-white/10">
-                    <!-- Transparent inner container for OBS camera -->
-                    <div class="w-full h-full bg-transparent">
-                        <!-- OBS camera source will go here -->
-                    </div>
-                </div>
-
-                <!-- Info Stream Section -->
-                <div class="bg-white/10 backdrop-blur-md rounded-3xl shadow-xl border border-white/10">
-                    <div class="p-8">
-                        <div class="grid grid-cols-2 gap-12">
-                            <!-- Social Media Links -->
-                            <div class="space-y-6">
-                                <h3 class="text-2xl font-bold text-white">Connect With Me</h3>
-                                <div class="space-y-4">
-                                    <a href="#" class="flex items-center space-x-3 text-lg text-white hover:text-blue-300 transition-colors duration-300 group">
-                                        <i class="fab fa-twitter w-8 group-hover:scale-110 transition-transform duration-300"></i>
-                                        <span>@JuanCedeno</span>
-                                    </a>
-                                    <a href="#" class="flex items-center space-x-3 text-lg text-white hover:text-purple-300 transition-colors duration-300 group">
-                                        <i class="fab fa-github w-8 group-hover:scale-110 transition-transform duration-300"></i>
-                                        <span>@InfinityZ25</span>
-                                    </a>
-                                    <a href="#" class="flex items-center space-x-3 text-lg text-white hover:text-blue-300 transition-colors duration-300 group">
-                                        <i class="fab fa-linkedin w-8 group-hover:scale-110 transition-transform duration-300"></i>
-                                        <span>Juan Cedeno</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Stream Info -->
-                            <div class="space-y-6">
-                                <h3 class="text-2xl font-bold text-white">Stream Info</h3>
-                                <div class="space-y-4">
-                                    <div class="flex items-center space-x-3 text-lg text-white">
-                                        <span class="w-8 text-2xl">🎮</span>
-                                        <span>Building Friday AI</span>
-                                    </div>
-                                    <div class="flex items-center space-x-3 text-lg text-white">
-                                        <span class="w-8 text-2xl">⏰</span>
-                                        <span>Mon-Fri 9PM EST</span>
-                                    </div>
-                                    <div class="flex items-center space-x-3 text-lg text-white">
-                                        <span class="w-8 text-2xl">💡</span>
-                                        <span>ML/AI Development</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="flex h-screen p-6 px-16">
+    <!-- Main container with proper width distribution -->
+    <div class="flex w-full gap-6 max-w-[2100px] mx-auto">
+      <!-- Chat Section (25%) -->
+      <div class="w-1/4 h-full bg-white/10 backdrop-blur-md rounded-3xl shadow-xl border border-white/10">
+        <div class="p-6 h-full">
+          <h2 class="text-2xl font-bold mb-6 text-white">Live Chat</h2>
+          <!-- Chat content goes here -->
         </div>
+      </div>
+
+      <!-- Main Content Section (75%) -->
+      <div class="w-4/5 flex flex-col gap-8 h-full">
+        <!-- Grid container for equal height distribution -->
+        <div class="grid grid-rows-[2fr_1fr] gap-6 h-full">
+          <!-- Camera Square Container -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/10">
+            <!-- Transparent inner container for OBS camera -->
+            <div class="w-full h-full bg-transparent">
+              <!-- OBS camera source will go here -->
+            </div>
+          </div>
+
+          <!-- Info Stream Section -->
+          <div class="bg-white/10 backdrop-blur-md rounded-3xl shadow-xl border border-white/10">
+            <div class="p-8 h-full">
+              <div class="grid grid-cols-3 gap-8 h-full">
+                <!-- Social Media Links -->
+                <div class="space-y-6">
+                  <h3 class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-share-alt mr-3"></i>
+                    Redes
+                  </h3>
+                  <div class="space-y-4">
+                    <a href="#"
+                      class="flex items-center space-x-3 text-lg text-blue-300 transition-colors duration-300 group">
+                      <i class="fab fa-x w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                      <span>@thejcedeno</span>
+                    </a>
+                    <a href="#"
+                      class="flex items-center space-x-3 text-lg text-gray-300 hover:text-purple-300 transition-colors duration-300 group">
+                      <i class="fab fa-github w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                      <span>@InfinityZ25</span>
+                    </a>
+                    <a href="#"
+                      class="flex items-center space-x-3 text-lg text-red-300 hover:text-red-300 transition-colors duration-300 group">
+                      <i class="fab fa-youtube w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                      <span>@thejcedeno</span>
+                    </a>
+                    <a href="#"
+                      class="flex items-center space-x-3 text-lg text-purple-300 hover:text-red-300 transition-colors duration-300 group">
+                      <i class="fab fa-tiktok w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                      <span>@thejcedeno</span>
+                    </a>
+                    <a href="#"
+                      class="flex items-center space-x-3 text-lg text-white hover:text-blue-300 transition-colors duration-300 group">
+                      <i class="fab fa-linkedin w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                      <span>Juan Cedeno</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Stream Info -->
+                <div class="space-y-6">
+                  <h3 class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-broadcast-tower mr-3"></i>
+                    Stream Info
+                  </h3>
+                  <div class="space-y-4">
+                    <div class="flex items-center space-x-3 text-lg text-white">
+                      <span class="w-8 text-2xl">🎮</span>
+                      <span>Building Friday AI</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-lg text-white">
+                      <span class="w-8 text-2xl">⏰</span>
+                      <span>Mon-Fri 9PM EST</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-lg text-white">
+                      <span class="w-8 text-2xl">💡</span>
+                      <span>ML/AI Development</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-lg text-white">
+                      <span class="w-8 text-2xl">🎯</span>
+                      <span>Next Goal: AGI</span>
+                    </div>
+                  </div>
+                </div> <!-- Latest Updates -->
+                <div class="space-y-6">
+                  <h3 class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-bell mr-3"></i>
+                    Latest Updates
+                  </h3>
+                  <div class="space-y-4">
+                    <div class="p-3 bg-white/5 rounded-lg">
+                      <p class="text-sm text-white/80">🆕 New Friday AI Update v2.0</p>
+                      <p class="text-xs text-white/60 mt-1">Released yesterday</p>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                      <p class="text-sm text-white/80">📈 Follower Goal: 1000</p>
+                      <p class="text-xs text-white/60 mt-1">Project to reach it by February</p>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-lg">
+                      <p class="text-sm text-white/80">🎉 New Stream Schedule</p>
+                      <p class="text-xs text-white/60 mt-1">Starting next week</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script>
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("mainData", () => ({
-          darkMode: localStorage.getItem("theme") === "dark",
-          init() {
-            if (
-              localStorage.theme === "dark" ||
-              (!("theme" in localStorage) &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
-              document.documentElement.classList.add("dark");
-              this.darkMode = true;
-            } else {
-              document.documentElement.classList.remove("dark");
-              this.darkMode = false;
-            }
-            this.$nextTick(() => {
-              this.initParticleBackground();
-            });
+  </div>
 
-            document.addEventListener("keydown", (event) => {
-              if (event.key === ".") {
-                window.location.href =
-                  "https://github.dev/InfinityZ25/resume/index.html";
-              }
-            });
-          },
-          toggleDarkMode() {
-            this.darkMode = !this.darkMode;
-            localStorage.theme = this.darkMode ? "dark" : "light";
-            document.documentElement.classList.toggle("dark", this.darkMode);
-            this.$nextTick(() => {
-              this.updateParticleColor();
-            });
-          },
-          initParticleBackground() {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(
-              75,
-              window.innerWidth / window.innerHeight,
-              0.1,
-              1000
-            );
-            const renderer = new THREE.WebGLRenderer({
-              canvas: document.getElementById("particle-bg"),
-              alpha: true,
-            });
+  <script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.data("mainData", () => ({
+        darkMode: localStorage.getItem("theme") === "dark",
+        init() {
+          if (
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          ) {
+            document.documentElement.classList.add("dark");
+            this.darkMode = true;
+          } else {
+            document.documentElement.classList.remove("dark");
+            this.darkMode = false;
+          }
+          this.$nextTick(() => {
+            this.initParticleBackground();
+          });
+
+          document.addEventListener("keydown", (event) => {
+            if (event.key === ".") {
+              window.location.href =
+                "https://github.dev/InfinityZ25/resume/index.html";
+            }
+          });
+        },
+        toggleDarkMode() {
+          this.darkMode = !this.darkMode;
+          localStorage.theme = this.darkMode ? "dark" : "light";
+          document.documentElement.classList.toggle("dark", this.darkMode);
+          this.$nextTick(() => {
+            this.updateParticleColor();
+          });
+        },
+        initParticleBackground() {
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+          );
+          const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById("particle-bg"),
+            alpha: true,
+          });
+          renderer.setSize(window.innerWidth, window.innerHeight);
+
+          const particles = new THREE.BufferGeometry();
+          const particleCount = 5000;
+          const posArray = new Float32Array(particleCount * 3);
+          const colorArray = new Float32Array(particleCount * 3);
+
+          for (let i = 0; i < particleCount * 3; i += 3) {
+            posArray[i] = (Math.random() - 0.5) * 5;
+            posArray[i + 1] = (Math.random() - 0.5) * 5;
+            posArray[i + 2] = (Math.random() - 0.5) * 5;
+
+            colorArray[i] = Math.random();
+            colorArray[i + 1] = Math.random();
+            colorArray[i + 2] = Math.random();
+          }
+
+          particles.setAttribute(
+            "position",
+            new THREE.BufferAttribute(posArray, 3)
+          );
+          particles.setAttribute(
+            "color",
+            new THREE.BufferAttribute(colorArray, 3)
+          );
+
+          const material = new THREE.PointsMaterial({
+            size: 0.005,
+            vertexColors: true,
+          });
+
+          const particlesMesh = new THREE.Points(particles, material);
+          scene.add(particlesMesh);
+
+          camera.position.z = 2;
+
+          let mouseX = 0;
+          let mouseY = 0;
+
+          document.addEventListener("mousemove", (event) => {
+            mouseX = event.clientX / window.innerWidth - 0.5;
+            mouseY = event.clientY / window.innerHeight - 0.5;
+          });
+
+          const animate = () => {
+            requestAnimationFrame(animate);
+
+            particlesMesh.rotation.y += 0.001;
+            particlesMesh.rotation.x += mouseY * 0.001;
+            particlesMesh.rotation.y += mouseX * 0.001;
+
+            renderer.render(scene, camera);
+          };
+
+          animate();
+
+          window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
+          });
 
-            const particles = new THREE.BufferGeometry();
-            const particleCount = 5000;
-            const posArray = new Float32Array(particleCount * 3);
-            const colorArray = new Float32Array(particleCount * 3);
-
+          this.updateParticleColor = () => {
+            const colors = particles.attributes.color;
             for (let i = 0; i < particleCount * 3; i += 3) {
-              posArray[i] = (Math.random() - 0.5) * 5;
-              posArray[i + 1] = (Math.random() - 0.5) * 5;
-              posArray[i + 2] = (Math.random() - 0.5) * 5;
-
-              colorArray[i] = Math.random();
-              colorArray[i + 1] = Math.random();
-              colorArray[i + 2] = Math.random();
-            }
-
-            particles.setAttribute(
-              "position",
-              new THREE.BufferAttribute(posArray, 3)
-            );
-            particles.setAttribute(
-              "color",
-              new THREE.BufferAttribute(colorArray, 3)
-            );
-
-            const material = new THREE.PointsMaterial({
-              size: 0.005,
-              vertexColors: true,
-            });
-
-            const particlesMesh = new THREE.Points(particles, material);
-            scene.add(particlesMesh);
-
-            camera.position.z = 2;
-
-            let mouseX = 0;
-            let mouseY = 0;
-
-            document.addEventListener("mousemove", (event) => {
-              mouseX = event.clientX / window.innerWidth - 0.5;
-              mouseY = event.clientY / window.innerHeight - 0.5;
-            });
-
-            const animate = () => {
-              requestAnimationFrame(animate);
-
-              particlesMesh.rotation.y += 0.001;
-              particlesMesh.rotation.x += mouseY * 0.001;
-              particlesMesh.rotation.y += mouseX * 0.001;
-
-              renderer.render(scene, camera);
-            };
-
-            animate();
-
-            window.addEventListener("resize", () => {
-              camera.aspect = window.innerWidth / window.innerHeight;
-              camera.updateProjectionMatrix();
-              renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-
-            this.updateParticleColor = () => {
-              const colors = particles.attributes.color;
-              for (let i = 0; i < particleCount * 3; i += 3) {
-                if (this.darkMode) {
-                  colors.setXYZ(i / 3, 1, 1, 1); // White for dark mode
-                } else {
-                  // Pastel colors for light mode
-                  colors.setXYZ(
-                    i / 3,
-                    0.5 + Math.random() * 0.5,
-                    0.5 + Math.random() * 0.5,
-                    0.5 + Math.random() * 0.5
-                  );
-                }
+              if (this.darkMode) {
+                colors.setXYZ(i / 3, 1, 1, 1); // White for dark mode
+              } else {
+                // Pastel colors for light mode
+                colors.setXYZ(
+                  i / 3,
+                  0.5 + Math.random() * 0.5,
+                  0.5 + Math.random() * 0.5,
+                  0.5 + Math.random() * 0.5
+                );
               }
-              colors.needsUpdate = true;
-            };
+            }
+            colors.needsUpdate = true;
+          };
 
-            this.updateParticleColor(); // Initial color set
-          },
-        }));
-      });
-    </script>
-  </body>
+          this.updateParticleColor(); // Initial color set
+        },
+      }));
+    });
+  </script>
+</body>
+
 </html>
