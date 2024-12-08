@@ -187,6 +187,74 @@
       </button>
     </div>
 
+    <div class="flex min-h-screen p-6">
+        <!-- Main container with proper width distribution -->
+        <div class="flex w-full gap-6 max-w-[2100px] mx-auto">
+            <!-- Chat Section (25%) -->
+            <div class="w-1/4 bg-white/10 backdrop-blur-md rounded-3xl shadow-xl border border-white/10">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-6 text-white">Live Chat</h2>
+                    <!-- Chat content goes here -->
+                </div>
+            </div>
+
+            <!-- Main Content Section (75%) -->
+            <div class="w-3/4 flex flex-col gap-6">
+                <!-- Camera Square Container -->
+                <div class="aspect-square w-full max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden border border-white/10">
+                    <!-- Transparent inner container for OBS camera -->
+                    <div class="w-full h-full bg-transparent">
+                        <!-- OBS camera source will go here -->
+                    </div>
+                </div>
+
+                <!-- Info Stream Section -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl shadow-xl border border-white/10">
+                    <div class="p-8">
+                        <div class="grid grid-cols-2 gap-12">
+                            <!-- Social Media Links -->
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-bold text-white">Connect With Me</h3>
+                                <div class="space-y-4">
+                                    <a href="#" class="flex items-center space-x-3 text-lg text-white hover:text-blue-300 transition-colors duration-300 group">
+                                        <i class="fab fa-twitter w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                                        <span>@JuanCedeno</span>
+                                    </a>
+                                    <a href="#" class="flex items-center space-x-3 text-lg text-white hover:text-purple-300 transition-colors duration-300 group">
+                                        <i class="fab fa-github w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                                        <span>@InfinityZ25</span>
+                                    </a>
+                                    <a href="#" class="flex items-center space-x-3 text-lg text-white hover:text-blue-300 transition-colors duration-300 group">
+                                        <i class="fab fa-linkedin w-8 group-hover:scale-110 transition-transform duration-300"></i>
+                                        <span>Juan Cedeno</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Stream Info -->
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-bold text-white">Stream Info</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center space-x-3 text-lg text-white">
+                                        <span class="w-8 text-2xl">🎮</span>
+                                        <span>Building Friday AI</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3 text-lg text-white">
+                                        <span class="w-8 text-2xl">⏰</span>
+                                        <span>Mon-Fri 9PM EST</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3 text-lg text-white">
+                                        <span class="w-8 text-2xl">💡</span>
+                                        <span>ML/AI Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
       document.addEventListener("alpine:init", () => {
         Alpine.data("mainData", () => ({
